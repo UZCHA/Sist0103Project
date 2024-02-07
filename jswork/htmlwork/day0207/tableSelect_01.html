@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tb1 {
+            width: 500px;
+            border: 3px solid gray;
+            border-collapse: collapse;
+        }
+
+        /* > :바로 아래 태그 의미하고, 한칸 띄는건 하위를 의미 */
+        .tb1>thead>tr>th {
+            background-color: bisque;
+            border: 1px solid gray;
+            color: brown;
+        }
+
+        .tb1>thead>tr {
+            height: 50px;
+            font-size: 1.2em;
+        }
+
+        .tb1>tbody>tr>td {
+            background-color: coral;
+            border: 1px solid blue;
+        }
+
+        .tb2 {
+            width: 400px;
+            border: 3px solid green;
+            border-collapse: collapse;
+        }
+
+        /* 왜 >사용 안하냐면 바로 아래에 th가 있는게 아니라서, 하위에 있는 것임*/
+        .tb2 th,
+        .tb2 td {
+            border: 1px solid orange;
+        }
+
+        .tb2 thead tr {
+            height: 50px;
+            color: red;
+        }
+
+        .tb2 img {
+            width: 100px;
+        }
+
+        /* td태그의 3번열의 너비를 100px로 고치고 글자색을 blue, 우측정렬로 */
+        .tb2 td:nth-child(3) {
+            width: 100px;
+            color: blue;
+            text-align: right;
+        }
+
+        /* 테이블 이벤트를 css에서도 줄 수 있다. */
+        .tb1 tbody td:hover {
+            background-color: green;
+            color: white;
+        }
+        /* tr에 이벤트를 줄 경우 마우스 올려두었을때 한 행이 전부다 색이 바뀐다 */
+        .tb2 tbody tr:hover {
+            background-color: aquamarine;
+        }
+
+        .tb3 {
+            width: 400px;
+            border: 5px solid gray;
+            border-collapse: collapse;
+        }
+
+        .tb3 td {
+            border: 2px solid gray;
+            font-size: 20px;
+        }
+
+        .tb3 .line {
+            border-bottom: 5px double red;
+        }
+    </style>
+</head>
+
+<body>
+    <table class="tb1">
+        <caption><b>[표연습_1]</b></caption>
+        <thead>
+            <tr>
+                <th>이름</th>
+                <th>나이</th>
+                <th>주소</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>김민규</td>
+                <td>28세</td>
+                <td>강남구 역삼동</td>
+            </tr>
+            <tr>
+                <td>이영희</td>
+                <td>20세</td>
+                <td>중랑구 신내동</td>
+            </tr>
+            <tr>
+                <td>정준희</td>
+                <td>30세</td>
+                <td>충남 아산</td>
+            </tr>
+        </tbody>
+    </table>
+    <hr>
+    <table class="tb2">
+        <caption><b>[표연습_2]</b></caption>
+        <thead>
+            <tr>
+                <th>상품명</th>
+                <th>이미지</th>
+                <th>가격</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>패딩가디건</td>
+                <td><img src="../이미지/쇼핑몰사진/9.jpg"></td>
+                <td>55000원</td>
+            </tr>
+            <tr>
+                <td>진주팔찌</td>
+                <td><img src="../이미지/쇼핑몰사진/20.jpg"></td>
+                <td>100000원</td>
+            </tr>
+            <tr>
+                <td>스웨이드단화</td>
+                <td><img src="../이미지/쇼핑몰사진/11.jpg"></td>
+                <td>25000원</td>
+            </tr>
+        </tbody>
+
+    </table>
+    <hr>
+    <table class="tb3">
+        <caption><b>[표연습_3]</b></caption>
+        <tr>
+            <td width="150" rowspan="3" align="center">
+                <img src="../이미지/Food/10.jpg" width="130" border="1">
+            </td>
+            <td>마요덮밥</td>
+        </tr>
+        <tr>
+            <td>재료</td>
+        </tr>
+        <tr class="line">
+            <td>마요네즈, 스팸, 햇반</td>
+        </tr>
+        <tr>
+            <td width="150" rowspan="3" align="center">
+                <img src="../이미지/Food/11.jpg" width="130" border="1">
+            </td>
+            <td>오렌지샤베트</td>
+        </tr>
+        <tr>
+            <td>재료</td>
+        </tr>
+        <tr class="line">
+            <td>오렌지, 얼음</td>
+        </tr>
+        <tr>
+            <td width="150" rowspan="3" align="center">
+                <img src="../이미지/Food/3.jpg" width="130" border="1">
+            </td>
+            <td>순두부 찌개</td>
+        </tr>
+        <tr>
+            <td>재료</td>
+        </tr>
+        <tr >
+            <td>양파, 순두부</td>
+        </tr>
+    </table>
+</body>
+
+</html>

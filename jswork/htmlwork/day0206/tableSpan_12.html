@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tb2 {
+            width: 400px;
+            border: 1px solid gray;
+            border-collapse: collapse;
+        }
+
+
+        .tb2 td,
+        .tb2 th {
+            border: 1px solid plum;
+            border-collapse: collapse;
+        }
+
+        .tb3 {
+            width: 400px;
+
+            border: 1px solid gray;
+            border-collapse: collapse;
+        }
+
+        .tb3 td {
+            height: 60px;
+            border: 2px solid gray;
+            border-collapse: collapse;
+
+        }
+
+        .tb4 {
+            width: 400px;
+            border: 1px solid gray;
+            border-collapse: collapse;
+
+        }
+
+        .tb4 td {
+            height: 30px;
+            border: 2px solid gray;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+
+<body>
+    <table border="1" width="400">
+        <caption>[표1]</caption>
+        <tr height="50">
+            <td align="center">one</td>
+            <td align="center">two</td>
+            <td align="center">three</td>
+
+        </tr>
+        <tr align="center" height="50">
+            <td colspan="3">3칸 합침</td>
+
+        </tr>
+    </table>
+
+    <hr>
+    <table class="tb2">
+        <caption><b>표2</b></caption>
+        <tr height="40">
+            <th>사진</th>
+            <th>이름</th>
+            <th>주소</th>
+            <th>핸드폰</th>
+
+        </tr>
+        <tr>
+            <td rowspan="3" align="center">
+                <img src="../이미지/logoImg/icon02.png" width="80">
+            </td>
+            <td>김철수</td>
+            <td>충남 아산시</td>
+            <td>010-1111-2222</td>
+        </tr>
+        <tr>
+            <td>이영희</td>
+            <td>서울 강남구</td>
+            <td>010-1111-2222</td>
+        </tr>
+        <tr>
+            <td>신혜라</td>
+            <td>서울 용산구</td>
+            <td>010-1111-2222</td>
+        </tr>
+        </tabl>
+        <hr>
+
+        <table class="tb3">
+            <caption><b>[표3]</b> </caption>
+
+            <tr>
+                <td rowspan="3" align="center">1</td>
+                <td colspan="3" align="center">2</td>
+
+            <tr>
+
+                <td colspan="3" align="center">3</td>
+            </tr>
+            <tr>
+
+                <td colspan="2" align="center">4</td>
+                <td rowspan="2" align="center">5</td>
+            </tr>
+            <tr>
+                <td colspan="3" align="center">6</td>
+            </tr>
+            </tr>
+
+
+        </table>
+        <hr>
+
+        <table class="tb4">
+            <caption><b>[표4]</b></caption>
+            <tr>
+                <td rowspan="3" align="center">김철수</tb>
+                <td rowspan="3" align="center"><img src="../이미지/만화이미지/03.png" width="150"></td>
+                <td align="center">010-111-222-333</td>
+            </tr>
+            <tr>
+                <td align="center">경제학부</td>
+            </tr>
+            <tr>
+                <td align="center">4학년</td>
+            </tr>
+
+
+
+        </table>
+</body>
+
+</html>

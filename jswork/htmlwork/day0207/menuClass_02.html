@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a{
+            text-decoration: none;
+        }
+        ul li{
+            list-style: none;
+        }
+        li.main{
+            float: left;
+        }
+        li.main>a{
+            display: block;
+            width: 200px;
+            color: red;
+            font-weight: bold;
+           
+        }
+        ul.submenu{
+           padding-left: 0px;
+            font-size: 12pt;
+            margin-top: 15px;
+        }
+        ul.submenu>li>a{
+            width: 180px;
+            height: 20px;
+            color: orange;
+            display: block; /*블럭 형태로 묶은것, 티는 안난다.*/
+        }
+        ul.submenu>li>a:hover{
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <ul >
+            <li class="main">
+                <a href="#">1일차</a>
+                <ul class="submenu">
+                    <li>
+                        <a href="../day0205/tagTest_02.html">2번 예제</a>
+                    </li>
+                    <li>
+                        <a href="../day0205/tag_03.html">3번 예제</a>
+                    </li>
+                    <li>
+                        <a href="../day0205/styleSheet_04.html">4번 예제</a>
+                    </li>
+                    <li>
+                        <a href="../day0205/list_05.html">5번 예제</a>
+                    </li>
+                    <li>
+                        <a href="../day0205/musicAlbum_06.html">6번 예제</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        
+
+        <ul >
+            <li class="main">
+                <a href="#">2일차</a>
+                <ul class="submenu">
+                    <li>
+                        <a href="../day0206/listMenu_01.html">1번 예제</a>
+                    </li>
+                    <li>
+                        <a href="../day0206/cssReview_02.html">2번 예제</a>
+                    </li>
+                    <li>
+                        <a href="../day0206/cssClass_03.html">3번 예제</a>
+                    </li>
+                    <li>
+                        <a href="../day0206/cssLink_04.html">4번 예제</a>
+                    </li>
+                    <li>
+                        <a href="../day0206/aTag_05.html">5번 예제</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    
+    </div>
+</body>
+</html>
