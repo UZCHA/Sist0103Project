@@ -12,7 +12,7 @@
     <tags>topLevel</tags>
     <tags>shellMaximized</tags>
     <children xsi:type="basic:PartSashContainer" xmi:id="_5W5KV8PIEe6yCqbQecyS3A" selectedElement="_5W5KWMPIEe6yCqbQecyS3A" horizontal="true">
-      <children xsi:type="advanced:PerspectiveStack" xmi:id="_5W5KWMPIEe6yCqbQecyS3A" elementId="org.eclipse.ui.ide.perspectivestack" containerData="7500" selectedElement="_hAuHEMVpEe62Fs9irYLMNw">
+      <children xsi:type="advanced:PerspectiveStack" xmi:id="_5W5KWMPIEe6yCqbQecyS3A" elementId="org.eclipse.ui.ide.perspectivestack" containerData="7500" selectedElement="_5a8j2cPIEe6yCqbQecyS3A">
         <children xsi:type="advanced:Perspective" xmi:id="_5a8j2cPIEe6yCqbQecyS3A" elementId="org.eclipse.jst.j2ee.J2EEPerspective" selectedElement="_5a8j2sPIEe6yCqbQecyS3A" label="Java EE" iconURI="platform:/plugin/org.eclipse.jst.j2ee.ui/icons/full/cview16/j2ee_perspective.gif">
           <persistedState key="persp.hiddenItems" value="persp.hideToolbarSC:print,persp.hideToolbarSC:org.eclipse.ui.edit.undo,persp.hideToolbarSC:org.eclipse.ui.edit.redo,persp.hideToolbarSC:org.eclipse.ui.edit.text.toggleShowSelectedElementOnly,persp.hideToolbarSC:org.eclipse.debug.ui.commands.RunToLine,persp.hideToolbarSC:org.eclipse.jdt.ui.actions.OpenProjectWizard,"/>
           <tags>persp.actionSet:org.eclipse.mylyn.doc.actionSet</tags>
@@ -86,6 +86,7 @@
           <tags>persp.editorOnboardingCommand:New$$$Ctrl+N</tags>
           <children xsi:type="basic:PartSashContainer" xmi:id="_5a8j2sPIEe6yCqbQecyS3A" selectedElement="_5a8j28PIEe6yCqbQecyS3A" horizontal="true">
             <children xsi:type="basic:PartStack" xmi:id="_5a8j28PIEe6yCqbQecyS3A" elementId="topLeft" containerData="2000" selectedElement="_5a8j3MPIEe6yCqbQecyS3A">
+              <tags>active</tags>
               <children xsi:type="advanced:Placeholder" xmi:id="_5a8j3MPIEe6yCqbQecyS3A" elementId="org.eclipse.ui.navigator.ProjectExplorer" ref="_5Y6jxsPIEe6yCqbQecyS3A" closeable="true">
                 <tags>View</tags>
                 <tags>categoryTag:General</tags>
@@ -210,7 +211,7 @@
             </children>
           </children>
         </children>
-        <children xsi:type="advanced:Perspective" xmi:id="_hAuHEMVpEe62Fs9irYLMNw" elementId="com.quantum.dbperspective" selectedElement="_hAuHEcVpEe62Fs9irYLMNw" label="Quantum DB" iconURI="platform:/plugin/com.quantum.Quantum/icons/quantum.gif">
+        <children xsi:type="advanced:Perspective" xmi:id="_C82m0MWVEe6AVspSaD9w4g" elementId="com.quantum.dbperspective" selectedElement="_C82m0cWVEe6AVspSaD9w4g" label="Quantum DB" iconURI="platform:/plugin/com.quantum.Quantum/icons/quantum.gif">
           <persistedState key="persp.hiddenItems" value="persp.hideToolbarSC:print,persp.hideToolbarSC:org.eclipse.ui.edit.undo,persp.hideToolbarSC:org.eclipse.ui.edit.redo,persp.hideToolbarSC:org.eclipse.ui.edit.text.toggleShowSelectedElementOnly,persp.hideToolbarSC:org.eclipse.debug.ui.commands.RunToLine,persp.hideToolbarSC:org.eclipse.jdt.ui.actions.OpenProjectWizard,"/>
           <tags>persp.actionSet:org.eclipse.mylyn.doc.actionSet</tags>
           <tags>persp.actionSet:org.eclipse.mylyn.tasks.ui.navigation</tags>
@@ -226,29 +227,28 @@
           <tags>persp.actionSet:com.quantum.Quantum.actionSet</tags>
           <tags>persp.actionSet:org.eclipse.debug.ui.launchActionSet</tags>
           <tags>persp.showIn:org.eclipse.tm.terminal.view.ui.TerminalsView</tags>
-          <children xsi:type="basic:PartSashContainer" xmi:id="_hAuHEcVpEe62Fs9irYLMNw" selectedElement="_hAuHEsVpEe62Fs9irYLMNw" horizontal="true">
-            <children xsi:type="basic:PartStack" xmi:id="_hAuHEsVpEe62Fs9irYLMNw" elementId="side" containerData="3300" selectedElement="_hAuHE8VpEe62Fs9irYLMNw">
-              <tags>active</tags>
-              <children xsi:type="advanced:Placeholder" xmi:id="_hAuHE8VpEe62Fs9irYLMNw" elementId="com.quantum.view.bookmarkview" ref="_hAsR4MVpEe62Fs9irYLMNw" closeable="true">
+          <children xsi:type="basic:PartSashContainer" xmi:id="_C82m0cWVEe6AVspSaD9w4g" selectedElement="_C82m0sWVEe6AVspSaD9w4g" horizontal="true">
+            <children xsi:type="basic:PartStack" xmi:id="_C82m0sWVEe6AVspSaD9w4g" elementId="side" containerData="3300" selectedElement="_C82m08WVEe6AVspSaD9w4g">
+              <children xsi:type="advanced:Placeholder" xmi:id="_C82m08WVEe6AVspSaD9w4g" elementId="com.quantum.view.bookmarkview" ref="_hAsR4MVpEe62Fs9irYLMNw" closeable="true">
                 <tags>View</tags>
                 <tags>categoryTag:QuantumDB</tags>
               </children>
             </children>
-            <children xsi:type="basic:PartSashContainer" xmi:id="_hAuHFMVpEe62Fs9irYLMNw" containerData="6700">
-              <children xsi:type="advanced:Placeholder" xmi:id="_hAuHFcVpEe62Fs9irYLMNw" elementId="org.eclipse.ui.editorss" toBeRendered="false" containerData="3300" ref="_5YwygcPIEe6yCqbQecyS3A"/>
-              <children xsi:type="basic:PartSashContainer" xmi:id="_hAuHFsVpEe62Fs9irYLMNw" containerData="6700">
-                <children xsi:type="basic:PartStack" xmi:id="_hAuHF8VpEe62Fs9irYLMNw" elementId="com.quantum.view.sqlqueryviewMStack" containerData="3300" selectedElement="_hAuHGMVpEe62Fs9irYLMNw">
-                  <children xsi:type="advanced:Placeholder" xmi:id="_hAuHGMVpEe62Fs9irYLMNw" elementId="com.quantum.view.sqlqueryview" ref="_hAs48MVpEe62Fs9irYLMNw" closeable="true">
+            <children xsi:type="basic:PartSashContainer" xmi:id="_C82m1MWVEe6AVspSaD9w4g" containerData="6700">
+              <children xsi:type="advanced:Placeholder" xmi:id="_C82m1cWVEe6AVspSaD9w4g" elementId="org.eclipse.ui.editorss" toBeRendered="false" containerData="3300" ref="_5YwygcPIEe6yCqbQecyS3A"/>
+              <children xsi:type="basic:PartSashContainer" xmi:id="_C82m1sWVEe6AVspSaD9w4g" containerData="6700">
+                <children xsi:type="basic:PartStack" xmi:id="_C82m18WVEe6AVspSaD9w4g" elementId="com.quantum.view.sqlqueryviewMStack" containerData="3300" selectedElement="_C82m2MWVEe6AVspSaD9w4g">
+                  <children xsi:type="advanced:Placeholder" xmi:id="_C82m2MWVEe6AVspSaD9w4g" elementId="com.quantum.view.sqlqueryview" ref="_hAs48MVpEe62Fs9irYLMNw" closeable="true">
                     <tags>View</tags>
                     <tags>categoryTag:QuantumDB</tags>
                   </children>
                 </children>
-                <children xsi:type="basic:PartStack" xmi:id="_hAuHGcVpEe62Fs9irYLMNw" elementId="bottomRight" containerData="6700" selectedElement="_hAuHGsVpEe62Fs9irYLMNw">
-                  <children xsi:type="advanced:Placeholder" xmi:id="_hAuHGsVpEe62Fs9irYLMNw" elementId="com.quantum.view.tableview.TableView" ref="_hAs48cVpEe62Fs9irYLMNw" closeable="true">
+                <children xsi:type="basic:PartStack" xmi:id="_C82m2cWVEe6AVspSaD9w4g" elementId="bottomRight" containerData="6700" selectedElement="_C82m2sWVEe6AVspSaD9w4g">
+                  <children xsi:type="advanced:Placeholder" xmi:id="_C82m2sWVEe6AVspSaD9w4g" elementId="com.quantum.view.tableview.TableView" ref="_hAs48cVpEe62Fs9irYLMNw" closeable="true">
                     <tags>View</tags>
                     <tags>categoryTag:QuantumDB</tags>
                   </children>
-                  <children xsi:type="advanced:Placeholder" xmi:id="_hAuHG8VpEe62Fs9irYLMNw" elementId="com.quantum.view.logview" ref="_hAs48sVpEe62Fs9irYLMNw" closeable="true">
+                  <children xsi:type="advanced:Placeholder" xmi:id="_C82m28WVEe6AVspSaD9w4g" elementId="com.quantum.view.logview" ref="_hAs48sVpEe62Fs9irYLMNw" closeable="true">
                     <tags>View</tags>
                     <tags>categoryTag:QuantumDB</tags>
                   </children>
@@ -351,6 +351,8 @@
       <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view CommonNavigator.LINKING_ENABLED=&quot;0&quot; currentWorkingSetName=&quot;Aggregate for window 1707097811385&quot; org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets=&quot;0&quot;>&#xD;&#xA;&lt;lastRecentlyUsedFilters/>&#xD;&#xA;&lt;/view>"/>
       <tags>View</tags>
       <tags>categoryTag:General</tags>
+      <tags>active</tags>
+      <tags>activeOnClose</tags>
       <menus xmi:id="_5cZ8UMPIEe6yCqbQecyS3A" elementId="org.eclipse.ui.navigator.ProjectExplorer">
         <tags>ViewMenu</tags>
         <tags>menuContribution:menu</tags>
@@ -531,8 +533,6 @@
       <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view/>"/>
       <tags>View</tags>
       <tags>categoryTag:QuantumDB</tags>
-      <tags>active</tags>
-      <tags>activeOnClose</tags>
       <menus xmi:id="_hA5tQMVpEe62Fs9irYLMNw" elementId="com.quantum.view.bookmarkview">
         <tags>ViewMenu</tags>
         <tags>menuContribution:menu</tags>
@@ -576,7 +576,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_5XqmQsPIEe6yCqbQecyS3A" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_P_jiwMWCEe6IbMyX0CThcg" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_5Kl16sPIEe6yCqbQecyS3A"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_B-6-8MWVEe6AVspSaD9w4g" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_5Kl16sPIEe6yCqbQecyS3A"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_5XqmQ8PIEe6yCqbQecyS3A" elementId="group.edit" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -584,8 +584,8 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_5XqmRcPIEe6yCqbQecyS3A" elementId="org.eclipse.ui.workbench.edit">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_P_kJ0cWCEe6IbMyX0CThcg" elementId="undo" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/undo_edit.png" tooltip="Undo" enabled="false" command="_5Klz08PIEe6yCqbQecyS3A"/>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_P_kJ0sWCEe6IbMyX0CThcg" elementId="redo" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/redo_edit.png" tooltip="Redo" enabled="false" command="_5Kl0eMPIEe6yCqbQecyS3A"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_B-8NEcWVEe6AVspSaD9w4g" elementId="undo" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/undo_edit.png" tooltip="Undo" enabled="false" command="_5Klz08PIEe6yCqbQecyS3A"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_B-80IMWVEe6AVspSaD9w4g" elementId="redo" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/redo_edit.png" tooltip="Redo" enabled="false" command="_5Kl0eMPIEe6yCqbQecyS3A"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_5XqmRsPIEe6yCqbQecyS3A" elementId="additions" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -594,19 +594,19 @@
       <children xsi:type="menu:ToolBar" xmi:id="_5bjAscPIEe6yCqbQecyS3A" elementId="org.eclipse.debug.ui.launchActionSet">
         <tags>Draggable</tags>
       </children>
-      <children xsi:type="menu:ToolBar" xmi:id="_5bPesMPIEe6yCqbQecyS3A" elementId="org.eclipse.jst.j2ee.J2eeMainActionSet" visible="false">
+      <children xsi:type="menu:ToolBar" xmi:id="_5bPesMPIEe6yCqbQecyS3A" elementId="org.eclipse.jst.j2ee.J2eeMainActionSet">
         <tags>Draggable</tags>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_5bZPscPIEe6yCqbQecyS3A" elementId="org.eclipse.search.searchActionSet">
         <tags>Draggable</tags>
       </children>
-      <children xsi:type="menu:ToolBar" xmi:id="_NZGUQMPJEe6yCqbQecyS3A" elementId="org.eclipse.ui.edit.text.actionSet.presentation" visible="false">
+      <children xsi:type="menu:ToolBar" xmi:id="_NZGUQMPJEe6yCqbQecyS3A" elementId="org.eclipse.ui.edit.text.actionSet.presentation">
         <tags>Draggable</tags>
       </children>
-      <children xsi:type="menu:ToolBar" xmi:id="_5bZPsMPIEe6yCqbQecyS3A" elementId="org.eclipse.wst.server.ui.internal.webbrowser.actionSet" visible="false">
+      <children xsi:type="menu:ToolBar" xmi:id="_5bZPsMPIEe6yCqbQecyS3A" elementId="org.eclipse.wst.server.ui.internal.webbrowser.actionSet">
         <tags>Draggable</tags>
       </children>
-      <children xsi:type="menu:ToolBar" xmi:id="_5bjAsMPIEe6yCqbQecyS3A" elementId="org.eclipse.wst.ws.explorer.explorer" visible="false">
+      <children xsi:type="menu:ToolBar" xmi:id="_5bjAsMPIEe6yCqbQecyS3A" elementId="org.eclipse.wst.ws.explorer.explorer">
         <tags>Draggable</tags>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_5XqmSMPIEe6yCqbQecyS3A" elementId="group.nav" toBeRendered="false">
@@ -615,7 +615,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_5XqmSsPIEe6yCqbQecyS3A" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_P_kw5cWCEe6IbMyX0CThcg" elementId="org.eclipse.ui.window.pinEditor" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" enabled="false" type="Check" command="_5Kl1jcPIEe6yCqbQecyS3A"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_B-80JsWVEe6AVspSaD9w4g" elementId="org.eclipse.ui.window.pinEditor" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_5Kl1jcPIEe6yCqbQecyS3A"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_5XqmS8PIEe6yCqbQecyS3A" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -3272,7 +3272,7 @@
   <addons xmi:id="_5KJHtsPIEe6yCqbQecyS3A" elementId="MinMax Addon" contributorURI="platform:/plugin/org.eclipse.platform" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.MinMaxAddon"/>
   <addons xmi:id="_5KJHt8PIEe6yCqbQecyS3A" elementId="org.eclipse.ui.workbench.addon.0" contributorURI="platform:/plugin/org.eclipse.platform" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.HandlerProcessingAddon"/>
   <addons xmi:id="_5KXKEMPIEe6yCqbQecyS3A" elementId="SplitterAddon" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.splitteraddon.SplitterAddon"/>
-  <addons xmi:id="_P3cvoMWCEe6IbMyX0CThcg" elementId="org.eclipse.ui.ide.addon.0" contributionURI="bundleclass://org.eclipse.ui.ide/org.eclipse.ui.internal.ide.addons.SaveAllDirtyPartsAddon"/>
+  <addons xmi:id="_B4UAoMWVEe6AVspSaD9w4g" elementId="org.eclipse.ui.ide.addon.0" contributionURI="bundleclass://org.eclipse.ui.ide/org.eclipse.ui.internal.ide.addons.SaveAllDirtyPartsAddon"/>
   <addons xmi:id="_dz0JgGOlEeSMMaPQU2nlzw" elementId="org.eclipse.ui.ide.application.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" contributionURI="bundleclass://org.eclipse.ui.ide.application/org.eclipse.ui.internal.ide.application.addons.ModelCleanupAddon"/>
   <categories xmi:id="_5KcpoMPIEe6yCqbQecyS3A" elementId="org.eclipse.ui.category.edit" name="Edit"/>
   <categories xmi:id="_5KcpocPIEe6yCqbQecyS3A" elementId="org.eclipse.mylyn.wikitext.ui.editor.category" name="WikiText Markup Editing Commands" description="commands for editing lightweight markup"/>

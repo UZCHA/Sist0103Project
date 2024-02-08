@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var rightId="angel";
+        var rightPw="a1234";
+
+        function login(id,pw)
+        {
+            if(id==rightId)
+            {
+                if(pw==rightPw)
+                {
+                document.write(id+"님이 로그인 되었습니다.");
+                }
+                else
+                {
+                    alert("잘못된 비밀번호입니다.")
+                }
+            }
+            else
+            {
+                alert(id+"는 없는 아이디 입니다.");
+            }
+        }
+      var userid=prompt("아이디를 입력하세요");
+      var userpw=prompt("비밀번호를 입력하세요");
+      login(userid,userpw);
+    </script>
+</body>
+</html>

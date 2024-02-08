@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*querySelector은 id속성대신 선택자를 사용하는 점만 다르고 getElementById 메서드와 사용방법은 같다.*/
+        /*단 문서객체 하나를 선택하므로 이름이 같은 선택자가 여러개라면 가장먼저 등장하는 것을 선택한다*/
+        window.onload=function(){
+            let header=document.querySelector('h1');
+            header.style.color='orange';
+            header.style.background='red';
+            header.innerHTML='from javascript';
+        }
+    </script>
+</head>
+<body>
+    <h1>header</h1>
+    <h1>header</h1>
+    <h1>header</h1>
+    
+</body>
+</html>

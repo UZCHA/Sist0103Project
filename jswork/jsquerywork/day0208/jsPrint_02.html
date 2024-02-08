@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 자바스크립트는 다양한 방식으로 데이타를 출력할 수 있다. -->
+    <!-- 1. innerHTML : HTML요소 안에 출력 -->
+    <!-- 2. document.write() : html요소 없이 출력 => ()안의 것을 화면에 출력하라 -->
+    <!-- 3. alert() : 경고창을 띄우면서 출력을 하는 것 -->
+    <!-- 4. console.log() : 브라우저의 콘솔탭에 출력-->
+
+    <script>
+        document.write("자바스크립트는 처음이죠?")
+        console.log("안녕하세요");
+    </script>
+    <script>
+        // 문자, 숫자 상관없이 var 사용
+        var name1="차";
+        var name2="유";
+        var name3="지";
+
+        var name=name1+name2+name3;
+        document.write("안녕하세요<br>"+name+"입니다<br>");
+        // 출력시 "", '' 모두 사용 가능하다. 다만 소따움표와 소따움표, 대따움표와 대따움표 사용은 안됨
+        document.write("자바스크립트 시작<br>'자바스크립트 1일차'<br>");
+        document.write('내일은 설날입니다<br>지금 내 상태"매우 신남"입니다<br>');
+
+
+    </script>
+    <script>
+        var a;
+        a="변수 재사용 가능?";
+        a="100"; //""안에 숫자를 넣어도 문자입
+        document.write(a+1); //문자로 인식되고 있으므로 1001로 나오게 됨. 재사용 가능
+    </script>
+</body>
+</html>
