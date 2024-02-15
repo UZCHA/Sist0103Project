@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dongle&family=Gaegu&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@100..900&family=Noto+Serif+KR&display=swap"
+        rel="stylesheet">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        
+
+     
+
+        #result {
+            font-family: 'Nanum Pen Script';
+            width: 450px;
+            height: 200px;
+            border: 2px solid gray;
+            margin-top: 20px;
+            padding: 20px 20px;
+            font-size: 28px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+
+            document.getElementById("btnResult").onclick = function () {
+
+                var s = "";
+                s = "이름: " + document.getElementById("name").value + "<br>";
+                s += "비밀번호: " + document.getElementById("pass").value + "<br>";
+                //혈액형은 form의 name을 통해서 접근후 바로 출력가능
+
+                //가능언어는 복수출력 혹은 가능언어없음
+                // s+="가능언어: "+form.lang.value+"<br>" -> 안됨
+
+                console.log(frm.lang.length); //lang의 갯수
+
+                var lg = " ";
+                for (var i = 0; i < frm.length; i++) 
+                {
+                    if (frm.lang[i].checked) //체크일경우 true 아닐경우 false
+                    {
+                        lg += "[" + frm.lang[i].value + "]";
+                    }
+                    
+                }
+                s+="가능언어: "+(lg.length==0?"가능언어없음":lg)+"<br>";
+
+
+                document.getElementById("result").innerHTML = s;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <form name="frm">
+        <table class="table table-bordered" style="width: 500px;">
+            <caption><b>폼태그 과제_개인정보</b></caption>
+            <tr class="table-primary"> <!--부트스트랩 참고 class="table-primary"-->
+                <th>이름</th>
+                <td>
+                    <input type="text" id="name" size="10" placeholder="이름" class="form-control"> <!--style로 변화를 줘야 적용된다. size는 이제 적용안됨-->
+                </td>
+            </tr>
+
+            <tr>
+                <th class="table-primary">비밀번호</th>
+                <td>
+                    <input type="password" size="12" placeholder="비밀번호">
+                </td>
+            </tr>
+
+            <tr>
+                <th>혈액형</th>
+                <td>
+                    <input type="radio" name="blood" value="A">A형
+                    <input type="radio" name="blood" value="B">B형
+                    <input type="radio" name="blood" value="O">O형
+                    <input type="radio" name="blood" value="AB">AB형
+                </td>
+            </tr>
+            <tr>
+                <th>가능언어</th>
+                <td>
+                    <input type="checkbox" name="lang" value="C++">C++
+                    <input type="checkbox" name="lang" value="Java">Java
+                    <input type="checkbox" name="lang" value="Jquery">Jquery
+                    <input type="checkbox" name="lang" value="Spring">Spring
+                </td>
+            </tr>
+
+            <tr>
+                <th>입사일자</th>
+                <td>
+                    <input type="date" value="2022-01-01" id="ipsa">
+                </td>
+            </tr>
+
+            <tr>
+                <td align="center" colspan="2">
+                    <input type="button" id="btnResult" value="결과출력" class="btn btn-secondary">
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <div id="result">결과출력하는곳</div>
+</body>
+
+</html>

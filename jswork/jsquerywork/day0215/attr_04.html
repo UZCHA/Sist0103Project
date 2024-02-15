@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload=function(){
+            var selImg=document.getElementById("selImg");
+            var photo=document.getElementById("photo");
+
+            var init_image=selImg.value;
+            photo.setAttribute("src", init_image);
+
+            //셀렉트 박스변경시 해당이미지로
+            selImg.onchange=function(){
+                //모든 이벤트 함수에 이벤트 발생객체에 대한 this라는 변수가 기본으로 존재
+                console.log(this.value);
+                //photo에 src에 this.value 적용
+                photo.setAttribute("src",this.value);
+            }
+
+            //점점작게 이벤트
+            document.getElementById("btnsmall").onclick=function(){
+                //photo의 현재 width값 얻기
+                var w=photo.getAttribute("width");
+                w-=10;
+                photo.setAttribute("width",w);
+            }
+
+            document.getElementById("btnlarge").onclick=function(){
+                var w=parseInt(photo.getAttribute("width"));
+                w+=10;
+                photo.setAttribute("width",w);
+            }
+
+            //점점크게 이벤트
+            
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <button type="button" id="btnsmall">점점작게</button>
+        <button type="button" id="btnlarge">점점크게</button>
+        <b style="margin-left: 200px;">사진선택</b>
+        <select id="selImg">
+            <option value="../이미지/logoImg/shoe01.png">구두1</option>
+            <option value="../이미지/logoImg/shoe02.png" >구두2</option>
+            <option value="../이미지/logoImg/shoe03.png" selected>구두3</option>
+            <option value="../이미지/logoImg/shoe04.png" >구두4</option>
+        </select>
+    </div>
+    <div>
+        <img src="../이미지/logoImg/shoe01.png" id="photo" width="300">
+    </div>
+</body>
+</html>

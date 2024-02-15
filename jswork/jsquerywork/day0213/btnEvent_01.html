@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 외부 css가져오기 -->
+    <link rel="stylesheet" href="../css/buttonStyle.css">
+    <script>
+        window.onload = function () {
+            var b2 = document.getElementById("btn2");
+            b2.onclick = function () {
+                var name = prompt("당신의 이름은?");
+                if (name == null)
+                    alert("취소버튼을 누르셨습니다");
+                else
+                    alert("내 이름은 " + name + "입니다");
+            }
+        }
+        function hello() {
+            var ans = confirm("정말 삭제하겠습니까?");
+            console.log(ans);//크롬콘솔에서 확인하기. 반환타입이 true/flase
+            if (ans)
+                alert("삭제했습니다.");
+            else
+                alert("삭제작업을 취소했습니다.");
+        }
+    </script>
+</head>
+
+<body>
+    <button type="button" class="btn btn-green" onclick="alert('안녕하세요')">Alert</button>
+    <button type="button" class="btn btn-pink" id="btn2">Prompt</button>
+    <button type="button" class="btn btn-yellow" onclick="hello()">Confirm</button>
+</body>
+
+</html>
