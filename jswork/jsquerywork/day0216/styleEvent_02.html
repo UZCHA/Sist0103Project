@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Diphylleia&family=Gaegu&family=Nanum+Myeongjo&family=Single+Day&family=Sunflower:wght@300&display=swap"
+        rel="stylesheet">
+    <style>
+        #img1 {
+            position: absolute;
+            max-width: 300px;
+            left: 500px;
+            top: 100px;
+            border: 10px solid yellowgreen;
+            border-radius: 20px;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            document.getElementById("selImg").onchange=function(){
+                img1.setAttribute("src",this.value);
+            }
+
+            //선종류
+            var line=document.getElementsByName("line");
+            for(var i=0;i<line.length;i++){
+                line[i].onclick=function(){
+                    img1.style.borderStyle=this.value;
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h3>이미지 선택</h3>
+    <select id="selImg">
+        <option value="../이미지/Food/1.jpg">메뉴1</option>
+        <option value="../이미지/Food/2.jpg">메뉴2</option>
+        <option value="../이미지/Food/3.jpg">메뉴3</option>
+        <option value="../이미지/Food/4.jpg">메뉴4</option>
+    </select>
+    <br><br>
+    <h3>선 종류 선택</h3>
+    <input type="radio" value="solid" name="line">solid;
+    <input type="radio" value="dotted" name="line">dotted;
+    <input type="radio" value="dashed" name="line">dashed;
+    <input type="radio" value="double" name="line">double;
+    <input type="radio" value="groove" name="line">groove;
+    <input type="radio" value="inset" name="line">inset;
+    <img src="../이미지/Food/1.jpg" id="img1">
+</body>
+
+</html>

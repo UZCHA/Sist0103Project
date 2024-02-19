@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 50px;
+            margin: 3px;
+            text-align: center;
+            line-height: 50px;
+            color: cornflowerblue;
+            background: gold
+        }
+        #green{
+            color: white;
+            background-color: green;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="box" id="green"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box blue"></div>
+    <script>
+        //getElimentByTag
+       var divAll= document.getElementsByTagName("div");
+
+       for(var i=0;i<divAll.length;i++){
+        divAll[i].style.border='5px solid gray';
+       }
+
+       //classname
+       var boxAll=document.getElementsByClassName("box");
+
+       for(var i=0; i<boxAll.length;i++){
+        boxAll[i].innerHTML='박스아이템';
+       }
+
+       //id
+       var greenBox=document.getElementById("green");
+       greenBox.innerText='green box';
+
+       //queryselector
+      var qs= document.querySelector('.box');
+      qs.style.backgroundColor='magenta';
+
+      //querySelectorAll
+      var qsa=document.querySelectorAll('div');
+      for(var i=0;i<qsa.length;i++){
+        qsa[i].innerText='안녕?';
+      }
+    </script>
+    <hr>
+    <img src="../이미지/만화이미지/01.png" class="imga">
+    <img src="../이미지/만화이미지/02.png" class="imga">
+    <img src="../이미지/만화이미지/03.png" class="imga">
+    <img src="../이미지/만화이미지/04.png" class="imga">
+    <hr>
+    <img src="../이미지/Food/1.jpg" class="imgb">
+    <img src="../이미지/Food/5.jpg" class="imgb">
+    <img src="../이미지/Food/6.jpg" class="imgb">
+    <img src="../이미지/Food/7.jpg" class="imgb">
+
+    <script>
+        //같은클래스가 여러개일때 모든클래스에 같은 스타일 이벤트 적용
+       var s1= document.getElementsByClassName("imgb");
+       console.log("s1="+s1.length); //s1변수는 배열
+       //0번배열의 너비를 150px로
+       s1[0].style.width="150px";
+       //1번배열의 너비를 300
+       s1[1].style.width="300px";
+       //2번 보더변경
+       s1[2].style.border="10px inset green";
+       //s1배열 전체의 border-radius 200px
+       for(var i=0;i<s1.length;i++){
+       s1[i].style.borderRadius="200px";
+       }
+       //of
+       for(var s of s1)
+       s.style.borderRadius="100px";
+        
+       //방법2
+       var imga=document.querySelectorAll(".imga");
+       //for문으로 마우스 이벤트
+       var photo="";
+       for(var s of imga){
+       s.onmouseover=function(){
+        //기존사진 경로 얻어놓기
+        photo=this.getAttribute("src"); //var 안붙히면 자동 전역변수
+        this.setAttribute("src","../이미지/만화이미지/05.png");
+        //마우스 벗어나면 다시 원래 사진으로
+    
+       }
+       s.onmouseout=function(){
+        this.setAttribute("src", photo);
+       }
+
+       }
+    </script>
+   
+</body>
+</html>
