@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Diphylleia&family=Gaegu&family=Nanum+Myeongjo&family=Single+Day&family=Sunflower:wght@300&display=swap"
+        rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <title>Document</title>
+    <style>
+        .accselect {
+            border: 10px groove red;
+            border-radius: 30px 50px 20px 80px;
+            box-shadow: 5px 5px 5px gray;
+            margin: 50px 50px;
+            cursor:pointer;
+        }
+    </style>
+    <script>
+        $(function () {
+            $("img:eq(0)").hover(function () {
+                $(this).addClass("accselect");
+            }, function () {
+                $(this).removeClass("accselect");
+            })
+            //두번째랑 같은데 toggleclass
+            $("img:eq(1)").hover(function () {
+                $(this).toggleClass("accselect");
+            })
+
+            //3번은 bs class추가
+            $("img:eq(2)").hover(function(){
+                $(this).toggleClass("rounded-circle img-thumbnail");
+            })
+           
+        })
+
+    </script>
+</head>
+
+<body style="background-color: antiquewhite;">
+    <h6>마우스 올리면 클래스 추가, 벗어나면 제거, 첫이미지는 hover(add,removeClass)로 두번째는 toggleClass, 세번째는 부트스트랩 이미지</h3>
+        <img src="../이미지/logoImg/acc01.png">
+        <br><br>
+        <img src="../이미지/logoImg/acc02.png">
+        <br><br>
+        <img src="../이미지/logoImg/acc03.png">
+</body>
+
+</html>

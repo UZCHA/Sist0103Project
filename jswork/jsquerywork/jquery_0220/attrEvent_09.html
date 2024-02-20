@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Diphylleia&family=Gaegu&family=Nanum+Myeongjo&family=Single+Day&family=Sunflower:wght@300&display=swap"
+        rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <title>Document</title>
+    <script>
+        $(function () {
+            var imgArr = new Array(5);
+            imgArr[0] = "../이미지/만화이미지/01.png";
+            imgArr[1] = "../이미지/만화이미지/02.png";
+            imgArr[2] = "../이미지/만화이미지/03.png";
+            imgArr[3] = "../이미지/만화이미지/04.png";
+            imgArr[4] = "../이미지/만화이미지/05.png";
+
+            //모든 이미지에 같은 이미지를 넣고 width,height,border 설정
+            $("img").attr("src", "../이미지/Food/1.jpg");
+            $("img").css({
+                "width": "200",
+                "height": "200",
+                "border": "5px solid gray"
+            })
+            //img 태그에 마우스 올리면 배열 5개중 한개가 랜덤으로 나옵니다.
+            $("img").mouseover(function () {
+                currImg = $(this).attr("src");
+
+                ranidx = parseInt(Math.random() * 5); //랜덤 0-4까지
+
+                $(this).attr("src", imgArr[ranidx]);
+            })
+            //마우스 벗어나면 다시 원래의 이미지로 돌아갑니다.
+            $("img").mouseout(function () {
+                $(this).attr("src", currImg);
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <img src="">
+    <img src="">
+    <img src="">
+    <img src="">
+    <img src="">
+</body>
+
+</html>
