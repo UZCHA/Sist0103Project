@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Diphylleia&family=Gaegu&family=Nanum+Myeongjo&family=Single+Day&family=Sunflower:wght@300&display=swap"
+        rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <img src="../이미지/jquery_img/c1.png">
+    <img src="../이미지/jquery_img/c2.png">
+    <img src="../이미지/jquery_img/c3.png">
+    <img src="../이미지/jquery_img/c4.png">
+
+    <script>
+        //transform: 회전을 의미==>angle각의 크기 turn 1회전 360deg,turn
+        $("img:eq(0)").hover(function () {
+            //45도 회전
+            $(this).css("transform", "rotate(45deg)");//45도 시계방향으로 회전
+        }, function () {
+            $(this).css("transform", "rotate(0deg)");
+        })
+        $("img:eq(1)").hover(function () {
+            //45도 회전
+            $(this).css("transform", "rotate(-45deg)");//45도 반시계방향으로 회전
+        }, function () {
+            $(this).css("transform", "rotate(0deg)");
+        })
+
+        //transfrom 확대/축소, 1보다 크면 확대 1보다 작으면 축소
+
+        $("img:eq(2)").hover(function () {
+            $(this).css("transform", "scale(2,2)"); //가로 세로 2배로 확대
+        }, function () {
+            $(this).css("transform", "scale(1,1)");//다시 원상복구
+
+
+        })
+        //transform 이동: 양수는 오른쪽으로 음수는 왼쪽으로 이동
+        $("img:eq(3)").hover(function () {
+            $(this).css("transform", "translate(150px,150px)"); //각 x축 y축으로 이동
+        }, function () {
+            $(this).css("transform", "translate(0px)");
+        })
+    </script>
+</body>
+
+</html>
