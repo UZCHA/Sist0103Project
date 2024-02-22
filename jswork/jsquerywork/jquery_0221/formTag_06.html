@@ -33,7 +33,7 @@
            
             var myhobby="";
           $("input[name='hobby']:checked").each(function(i,ele){
-           myhobby+= $(this).val()+",&nbsp;";
+           myhobby+=$(this).val()+"&nbsp;";
           })
 
            var font= $("#selfont option:selected").text();
