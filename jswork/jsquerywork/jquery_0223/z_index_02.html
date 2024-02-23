@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Diphylleia&family=Gaegu&family=Nanum+Myeongjo&family=Single+Day&family=Sunflower:wght@300&display=swap"
+        rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <title>Document</title>
+    <style>
+        div.wall{
+            position: absolute;
+            width: 200px;
+            height: 500px;
+            background-image: url(../이미지/jquery_img/bg2.png);
+            z-index: 2;
+        }
+        #img1{
+            position: absolute;
+            left: 100px;
+            top:250px;
+            width: 200px;
+            height: 200px;
+            z-index: 1;
+        }
+    </style>
+    <script>
+        $(function(){
+            $("#img1").click(function(){
+                $(this).animate({left:'0px'},'slow',function(){
+                    $(this).animate({left:'100px'},'slow')
+                })
+            })
+
+            //강제이벤트 발생 효과 trigger
+            //3초에 한번씩 이미지를 클릭한 효과를 주기
+            setInterval(function(){
+                $("#img1").trigger("click");
+            },3000)
+        })
+    </script>
+</head>
+<body>
+    <div class="wall"></div>
+    <img src="../이미지/jquery_img/07.png" id="img1">
+</body>
+</html>
