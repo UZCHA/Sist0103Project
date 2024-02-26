@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Grandiflora+One&family=Gugi&family=Hahmlet:wght@100..900&family=Hi+Melody&family=Sunflower:wght@300&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url("../이미지/jquery_img/bg.png");
+            background-size: cover;
+
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .sunban-area {
+            width: 800px;
+            margin: 50px auto;
+            margin-top: 100px;
+
+        }
+
+        .game-control {
+            width: 300px;
+            height: 450px;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+        }
+
+        .sunban {
+            height: 150px;
+            margin-bottom: 50px;
+            width: 800px;
+            background: url("../이미지/jquery_img/sunban.png") no-repeat center bottom;
+        }
+
+        .sunban li {
+            float: left;
+            width: 120px;
+            height: 120px;
+            cursor: pointer;
+        }
+
+        .gun {
+            width: 300px;
+            height: 250px;
+            /* 아래그림부터 보이고 싶으면 center bottom으로 쓰면 아래쪽부터 보임*/
+            background: url("../이미지/jquery_img/gun.png") no-repeat;
+            cursor: pointer;
+            /* 텍스트를 안보이게 */
+            text-indent: -999px;
+        }
+
+        .gun:active {
+            background-position: bottom;
+        }
+
+        #game-msg {
+            font-family: 'Hi Melody';
+            position: absolute;
+            left: 700px;
+            top: 600px;
+            width: 500px;
+            height: 100px;
+            border: 10px solid gray;
+            text-align: center;
+            line-height: 100px;
+            border-radius: 20px;
+            font-size: 2em;
+        }
+    </style>
+    <script>
+        $(function () {
+            // var gun_sound=new Audio("../"); 음향 넣을 때!
+            //총 이미지 클릭시
+            $(".gun").click(function () {
+                //gun_sound.play();
+                //0-11 난수 발생
+                var n = parseInt(Math.random() * 12);
+                //해당 인덱스 미니언즈가 없을 경우 '00번째 미니언즈는 이미 처리됨' 출력되게
+                //그렇지 않을때는 '00번째 인형을 맞췄습니다.' 메세지 출력후 hide()
+                //$(".sunban img).eq(1).is(":hidden")==>true/false로 반환
+                if ($(".sunban img").eq(n).is(":hidden")) {
+                    $("#game-msg").html((n + 1) + "번째 미니언즈는 이미 처리됨");
+                } else {
+                    $("#game-msg").html((n + 1) + "번째 미니언즈를 맞추셨습니다");
+                    $(".sunban img").eq(n).hide();
+                }
+                //12개 모두 맟주면 메세지 창에 'YOU WIN' 출력
+                var cnt = 0;
+                $(".sunban img").each(function (i, ele) {
+                    if ($(this).is(":hidden"))
+                        cnt++;
+                })
+                if (cnt == 12) {
+                    $("#game-msg").html("<b>YOU WIN</b>");
+                }
+
+            })
+
+            //지폐 클릭시 해당지폐 사라지게하면서 다시 12개의 미니언즈 다시 보이고 메세지창 지워지기
+            $(".money img").click(function () {
+                $(this).hide();
+                $(".sunban img").show();
+                $("#game-msg").empty();
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <div class="game-control">
+        <div class="gun">총</div>
+        <ul class="money">
+            <li><img src="../이미지/jquery_img/money.png"></li>
+            <li><img src="../이미지/jquery_img/money.png"></li>
+            <li><img src="../이미지/jquery_img/money.png"></li>
+        </ul>
+    </div>
+
+    <div class="sunban-area">
+        <ul class="sunban">
+            <li><img src="../이미지/jquery_img/01.png"></li>
+            <li><img src="../이미지/jquery_img/02.png"></li>
+            <li><img src="../이미지/jquery_img/03.png"></li>
+            <li><img src="../이미지/jquery_img/04.png"></li>
+            <li><img src="../이미지/jquery_img/05.png"></li>
+            <li><img src="../이미지/jquery_img/06.png"></li>
+        </ul>
+        <ul class="sunban">
+            <li><img src="../이미지/jquery_img/07.png"></li>
+            <li><img src="../이미지/jquery_img/08.png"></li>
+            <li><img src="../이미지/jquery_img/09.png"></li>
+            <li><img src="../이미지/jquery_img/10.png"></li>
+            <li><img src="../이미지/jquery_img/11.png"></li>
+            <li><img src="../이미지/jquery_img/12.png"></li>
+        </ul>
+    </div>
+
+    <div id="game-msg">
+
+    </div>
+</body>
+
+</html>
