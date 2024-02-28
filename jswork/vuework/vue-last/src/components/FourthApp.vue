@@ -3,10 +3,10 @@
         <h1 class="alert alert-info">FourthApp입니다</h1>
         <div v-for="info in infoArray" :key="info">
             <h3>{{ info.id + "/" + info.user }}</h3>
+            <!-- <h3>{{ info.id}}/{{ info.user }}</h3> -->
         </div>
         <div>
             <li v-for="fruit in fruitArray" :key="fruit">{{ fruit }}</li>
-
         </div>
     </div>
 </template>
