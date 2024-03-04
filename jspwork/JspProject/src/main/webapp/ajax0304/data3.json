@@ -1,0 +1,5 @@
+[
+{"name":"kim","city":"seoul","hp":"010-111-222","detailaddr":"길동"},
+{"name":"lee","city":"incheon","hp":"010-333-444"},
+{"name":"park","city":"daegu","hp":"010-777-888","detailaddr":"만천동"}
+]

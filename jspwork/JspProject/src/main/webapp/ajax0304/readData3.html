@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2 family=Diphylleia&family=Gaegu&family=Nanum+Myeongjo&family=Single+Day&family=Sunflower:wght@300&display=swap" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<title>Insert title here</title>
+</head>
+<body>
+	<button type="button" class="btn btn-outline-info"
+	id="btn1">data3.xml 읽기</button>
+	
+	<button type="button" class="btn btn-outline-success"
+	id="btn2">data3.json 읽기</button>
+	
+	<button type="button" class="btn btn-outline-warning"
+	id="btn3">multidata3.json 읽기</button>
+	<br><br>
+	<div id="result">결과</div>
+	<script type="text/javascript">
+		$("#btn1").click(function(){
+		$.ajax({
+			type:"get",
+			url:"data3.xml",
+			dataType:"xml",
+			success:function(res){
+				var s="";
+				//i는 0부터, elt는 각 태그값, 여기서는 stu 각각이 elt로 넘어옴
+				$(res).find("stu").each(function(i,elt){
+					var n=$(elt);
+					s+="idx:"+i+"<br>";
+					s+="이름: "+n.attr("name")+"<br>";
+					s+="java: "+n.find("java").text()+"<br>";
+					s+="spring: "+n.find("spring").text()+"<br>";
+					s+="ajax: "+n.find("ajax").text()+"<br>";
+					s+="----------------------------------"+"<br>";
+				});
+				$("#result").html(s);
+			}
+			
+		})
+			
+		})
+		
+		$("#btn2").click(function(){
+			var s="";
+			
+			$.ajax({
+				type:"get",
+				url:"data3.json",
+				dataType:"json",
+				success:function(data){
+					$.each(data,function(idx,ele){
+						s+="idx: "+idx+"<br>";
+						s+="name: "+ele.name+"<br>";
+						s+="city: "+ele.city+"<br>";
+						s+="hp: "+ele.hp+"<br>";
+						s+="detailaddr: "+ele.detailaddr+"<br>";
+					});
+					$("#result").html(s);
+				}
+			})
+		})
+		
+		$("#btn3").click(function(){
+			var s="";
+			$.ajax({
+				type:"get",
+				url:"multidata3.json",
+				dataType:"json",
+				success:function(data){
+					$.each(data,function(idx,ele){
+						s+="idx: "+idx+"<br>";
+						s+="이름: "+ele.name+"<br>";
+						s+="취미: ";
+						if(ele.hobby==null)
+							s+="취미없음<br>";
+							else{
+								$.each(ele.hobby,function(i,h){
+									s+="["+h+"]";
+								})
+								s+="<br>";
+							}	
+						s+="hp: "+(ele.hp==null?"핸드폰 없음":ele.hp)+"<br>";
+						s+="주소: "+ele.addr+"<br>";
+						s+="--------------------------------<br>";
+					});
+					$("#result").html(s);
+				}
+			})
+		
+		})
+		
+	
+	</script>
+</body>
+</html>
