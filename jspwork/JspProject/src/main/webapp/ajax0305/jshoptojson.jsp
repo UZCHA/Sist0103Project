@@ -1,19 +1,19 @@
+<%@page import="mysql.DbConnect"%>
 <%@page import="org.json.simple.JSONObject"%>
 <%@page import="org.json.simple.JSONArray"%>
 <%@page import="java.sql.SQLException"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
-<%@page import="mysql.DbConnect"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+   pageEncoding="UTF-8"%>
 <%
 	DbConnect db=new DbConnect();
 	Connection conn=db.getConnection();
 	Statement stmt=null;
 	ResultSet rs=null;
 	
-	String sql="select *from jshop order by num";
+	String sql="select * from jshop order by num";
 	
 	try{
 		stmt=conn.createStatement();
@@ -37,11 +37,12 @@
 			//array에 추가
 			arr.add(ob);
 		}%>
-		<!-- 배열을 문자열로 보이게 하는 것 -->
+		
 		<%=arr.toString() %>
 		
-	<%}catch(SQLException e){
+	<%} catch(SQLException e){
 		
-	}db.dbClose(rs, stmt, conn);
-	
+	}finally{
+		db.dbClose(rs, stmt, conn);
+	}
 %>
