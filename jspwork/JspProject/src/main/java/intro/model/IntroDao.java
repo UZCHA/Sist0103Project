@@ -110,6 +110,32 @@ public class IntroDao {
 	}
 	
 	//수정(나이, 생년월일, 거주지역, 취미, 메모 수정
+	public void updateIntro(IntroDto dto) {
+		Connection conn=db.getConnection();
+		PreparedStatement pstmt=null;
+		
+		String sql="update intro set name=?,age=?,birthday=?,hometown=?,hobby=?,memo=? where num=?";
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, dto.getName());
+			pstmt.setString(2, dto.getAge());
+			pstmt.setString(3, dto.getBirthday());
+			pstmt.setString(4, dto.getHometown());
+			pstmt.setString(5, dto.getHobby());
+			pstmt.setString(6, dto.getMemo());
+			pstmt.setString(7, dto.getNum());
+			
+			pstmt.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			db.dbClose(pstmt, conn);
+		}
+		
+	}
+	
 	
 	
 	//삭제(선택한 시퀀스(num)에 해당하는 db 삭제)
