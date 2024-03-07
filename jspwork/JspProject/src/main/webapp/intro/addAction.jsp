@@ -15,6 +15,8 @@
 </head>
 <body>
 	<%
+	//이렇게 양이 많을 때는 jsp:useBean을 사용해도 좋습니다.
+	//team addAction 참고바람
 	request.setCharacterEncoding("utf-8");
 	String name=request.getParameter("name");
 	String age=request.getParameter("age");
@@ -31,18 +33,23 @@
 	dto.setHometown(hometown);
 	dto.setMemo(memo);
 	
+	String s="";
 	if(hobbies!=null){
-		String s="";
+		
 		
 		for(int i=0;i<hobbies.length;i++){
 			s+=hobbies[i]+",";
 	
 		}
 		s=s.substring(0,s.length()-1);
-		dto.setHobby(s);
+		//dto.setHobby(s);
 		
 		
+	}else{
+		s="null";
+		//dto.setHobby(s);
 	}
+	dto.setHobby(s);
 	
 	IntroDao dao=new IntroDao();
 	dao.insertIntro(dto);
@@ -50,5 +57,6 @@
 	response.sendRedirect("introList.jsp");
 	
 	%>
+	
 </body>
 </html>
