@@ -32,6 +32,7 @@ SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd hh:mm");
 <div style="margin: 50px 100px; width: 800px;">
 	<button type="button" class="btn btn-outline-success" 
 	onclick="location.href='insertForm.jsp'">데이터 추가</button>
+	<br>
 	<hr>
 	<table class="table table-bordered">
 		<caption align="top"><b>개인정보 목록</b></caption>
