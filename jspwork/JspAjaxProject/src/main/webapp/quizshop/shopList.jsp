@@ -40,7 +40,7 @@ SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
 				<tr>
 					<td align="center"><%=i+1%></td>
 					<td onclick="location.href='detailpage.jsp?num=<%=dto.getNum()%>'" ><%=dto.getSang_name() %></td>
-					<td><%=dto.getPrice() %></td>
+					<td><%=dto.getPrice() %>원</td>
 					<td><%=dto.getIpgoday() %></td>
 					<td><%=sdf.format(dto.getWriteday()) %></td>
 				</tr>
