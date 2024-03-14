@@ -1,3 +1,4 @@
+<%@page import="simpleboard.SimpleBoardDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -11,15 +12,23 @@
 </head>
 <body>
 <%
-	String loginok=(String)session.getAttribute("loginok");
+String num=request.getParameter("num");
+String pass=request.getParameter("pass");
 
-	if(loginok==null || loginok.equals("")) //로그아웃상태, 항상 null먼저
-	{%>
-		<jsp:include page="loginForm.jsp"/>
-		
-	<%}else{%>
-		<jsp:include page="logoutForm.jsp"/>
-	<%}
+SimpleBoardDao dao=new SimpleBoardDao();
+
+boolean flag=dao.isEqualPass(num, pass);
+
+if(flag){
+	dao.deleteSimpleBoard(num);
+	response.sendRedirect("boardlist.jsp");
+}else{%>
+	<script type="text/javascript">
+		alert("비밀번호가 맞지않습니다.");
+		history.back();
+	</script>
+<%}
+
 %>
 </body>
 </html>

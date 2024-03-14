@@ -17,9 +17,13 @@
 	span{
 	float: right;
 	}
-	table{
+	div{
 	margin: 50px 50px;
 	font-family: 'Hi Melody';
+	font-size: 1.2em;
+	}
+	a{
+	
 	}
 
 </style>
@@ -33,6 +37,7 @@ SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
 %>
 <div>
 	<table class="table table-bordered">
+	<caption align="top"><b>앨범형 목록</b></caption>
 <%
  for(int i=0;i<list.size();i++)
  {
@@ -43,8 +48,10 @@ SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
 	<tr> 
  <%}%>
  	<td>
+ 	<a href='content.jsp?num=<%=dto.getNum()%>'>
  		<img src='../save/<%=dto.getImgname()%>' style="width: 130px; height: 140px;">
  		<br><%=dto.getSubject() %>
+ 	</a>
  		<br><%=dto.getWriter() %><br>
  		<%=sdf.format(dto.getWriteday()) %>
  		<span>조회:<%=dto.getReadcount() %></span>

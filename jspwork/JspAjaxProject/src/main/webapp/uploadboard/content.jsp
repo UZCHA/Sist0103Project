@@ -55,13 +55,16 @@ SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
 				<b>조회:<%=dto.getReadcount() %></b>
 			</td>
 		</tr>
+		
 		<hr>
 		<td colspan="2">
+			<button type="button" onclick="location.href='addForm.jsp'">글쓰기</button>
 			<button type="button" onclick="location.href='boardList.jsp'">목록</button>
-			<button>수정</button>
-			<button>삭제</button>
+			<button type="button" onclick="location.href='updateForm.jsp?num=<%=dto.getNum()%>'">수정</button>
+			<button type="button" onclick="location.href='deleteForm.jsp?num=<%=dto.getNum()%>'">삭제</button>
 		</td>
-	</table>
+		</table>
+		
 </div>
 
 

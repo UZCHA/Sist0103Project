@@ -24,7 +24,7 @@ boolean flag=db.isLogin(id, pass);
 if(flag)
 {	
 	//3개 저장
-	//로그인 중인지 알 수 있는 세션저장
+	//로그인 중인지 알 수 있는 세션저장, 뒤에 'yes'값은 마음대로 원하는 대로 지정
 	session.setAttribute("loginok", "yes");
 	//id와 체크값 저장
 	session.setAttribute("idok", id);
