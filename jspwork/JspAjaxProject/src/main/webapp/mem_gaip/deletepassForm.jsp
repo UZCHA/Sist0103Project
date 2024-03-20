@@ -11,20 +11,21 @@
 </head>
 <body>
 <%
-//num을 읽어서 form에 hidden으로 넣을 수 있다.
-String num=request.getParameter("num");
+String m_num=request.getParameter("m_num");
+
 %>
+
 <div style="margin: 200px 200px;">
- 	<form action="deletepassaction.jsp" method="post">
+ 	<form action="deletepassAction.jsp" method="post">
  		<table class="table table-bordered" style="width: 300px;">
  			<caption align="top"><b>삭제 비밀번호 입력</b></caption>
  			<tr>
  				<td>
  					비밀번호를 입력해 주세요.<br><br>
- 					<input type="password"class="form-control" name="pass"
+ 					<input type="password"class="form-control" name="m_pass"
  					required="required" placeholder="숫자 4자리">
  					
- 					<input type="hidden" name="num" value="<%=num%>">
+ 					<input type="hidden" name="m_num" value="<%=m_num%>">
  					
  					<br><br>
  					<button type="submit" class="btn btn-danger">삭제</button>

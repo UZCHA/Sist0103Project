@@ -21,8 +21,7 @@ SimpleBoardDto dto=dao.getData(num);
 	<form action="updateaction.jsp" method="post">
 	<input type="hidden" name="num" value="<%=num%>">
 
-	
-	<b>글쓰기</b>
+	<b>게시글 수정</b>
 		<table class="table table-bordered">
 			<tr>
 				<th>작성자</th>

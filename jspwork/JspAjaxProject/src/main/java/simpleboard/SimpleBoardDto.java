@@ -11,7 +11,14 @@ public class SimpleBoardDto {
 		private String content;
 		private int readcount ;
 		private Timestamp writeday;
+		private int answercount; //댓글갯수저장
 		
+		public int getAnswercount() {
+			return answercount;
+		}
+		public void setAnswercount(int answercount) {
+			this.answercount = answercount;
+		}
 		public String getNum() {
 			return num;
 		}

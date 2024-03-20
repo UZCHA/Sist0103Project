@@ -1,3 +1,4 @@
+<%@page import="simpleboardanswer.SimpleAnswerDao"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="simpleboard.SimpleBoardDto"%>
 <%@page import="java.util.List"%>
@@ -30,7 +31,7 @@ SimpleBoardDao dao=new SimpleBoardDao();
 //전체갯수 
 int totalCount=dao.getTotalCount();
 
-int perPage=3; //한페이지당 보여질 글의 갯수
+int perPage=5; //한페이지당 보여질 글의 갯수
 int perBlock=5; //한블럭당 보여질 페이지 갯수
 int startNum; //db에서 가져올 글의 시작번호(mysql은 첫글이 0번,oracle은 1번)
 int startPage; //각 블럭에서 보여질 시작페이지
@@ -70,11 +71,25 @@ no=totalCount-(currentPage-1)*perPage;
 
 //페이지에서 보여질 글만 가져오기
 List<SimpleBoardDto> list=dao.getPagingList(startNum, perPage);
+//List<SimpleBoardDto> list=dao.getAllDatas(); 이건 이제 주석처리
 
-//List<SimpleBoardDto> list=dao.getAllDatas();
 SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm");
 //int count=list.size();
+
+
+//list의 각 dto에 댓글개수를 저장하고 출력할 곳에 출력
+SimpleAnswerDao adao=new SimpleAnswerDao(); //댓글 dao
+
+for(SimpleBoardDto dto:list){
+	//댓글변수에 댓글의 총개수를 넣기
+	int acount=adao.getAnswerList(dto.getNum()).size();
+	dto.setAnswercount(acount);
+	
+}
+
 %>
+
+
 </body>
 <div style="margin: 50px 100px; width: 800px;">
 	<button class="btn btn-outline-info btn-sm" onclick="location.href='addform.jsp'"
@@ -105,11 +120,22 @@ SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm");
 					<td align="center"><%=no--%></td>
 					<td>
 						<a href="contentview.jsp?num=<%=dto.getNum()%>">
-						<%=dto.getSubject() %></a>				
+						<%=dto.getSubject() %></a>
+						
+						<!-- 댓글개수 -->
+						<%
+							if(dto.getAnswercount()>0)
+							{%>
+								<a href="contentview.jsp?num=<%=dto.getNum()%>&currentPage=<%=currentPage %>#alist" style="color:red;">
+								[<%=dto.getAnswercount() %>]</a>
+							<%}
+						
+						%>
 					</td>
 					<td align="center"><%=dto.getWriter() %></td>
 					<td align="center"><%= sdf.format(dto.getWriteday())%></td>
 					<td align="center"><%=dto.getReadcount() %></td>
+					
 				</tr>
 				
 			<%}

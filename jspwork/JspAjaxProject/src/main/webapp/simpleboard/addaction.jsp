@@ -30,7 +30,7 @@ SimpleBoardDao dao=new SimpleBoardDao();
 dao.insertSimpleBoard(dto);
 
 //response.sendRedirect("boardlist.jsp");
-//insert후에 내용보기로 이동하려면 방금 insert된 num값을 알아야한다.
+//insert후에 내용보기(contentview)로 이동하려면 방금 insert된 num값을 알아야한다.
 int maxnum=dao.getMaxNum();
 response.sendRedirect("contentview.jsp?num="+maxnum);
 

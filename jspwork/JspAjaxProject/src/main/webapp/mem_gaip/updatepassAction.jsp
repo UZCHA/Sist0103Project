@@ -1,4 +1,5 @@
-<%@page import="simpleboard.SimpleBoardDao"%>
+<%@page import="mem_gaip.model.MemgaipDto"%>
+<%@page import="mem_gaip.model.MemgaipDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -12,23 +13,16 @@
 </head>
 <body>
 <%
+String m_num=request.getParameter("m_num");
+String m_pass=request.getParameter("m_pass");
 
-String num=request.getParameter("num");
-String pass=request.getParameter("pass");
+MemgaipDao dao=new MemgaipDao();
 
-SimpleBoardDao dao=new SimpleBoardDao();
-
-boolean flag=dao.isEqualPass(num, pass);
+boolean flag=dao.isEqualPass(m_num, m_pass);
 
 if(flag){
-	dao.deleteSimpleBoard(num);
-	//response.sendRedirect("boardlist.jsp");
-	%>
-	<script type="text/javascript">
-		alert("삭제되었습니다\n목록으로 이동합니다.");
-		location.href='boardlist.jsp';
-	</script>
-<%}else{%>
+	response.sendRedirect("updateForm.jsp?m_num="+m_num);
+}else{%>
 	<script type="text/javascript">
 		alert("비밀번호가 맞지않습니다.");
 		history.back();
