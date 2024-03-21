@@ -15,7 +15,7 @@
 String root=request.getContextPath();
 %>
 <body>
-	<img alt="" src="<%=root%>/image/dog4.jpg" style="width: 1200px; height: 800px;">
+	<img alt="" src="<%=root%>/image/dog4.jpg" style="width: 100%; height: 100%;">
 
 	<h3>귀여운 강아지 보기</h3>
 	<div style="width: 1200px; display: flex;" >

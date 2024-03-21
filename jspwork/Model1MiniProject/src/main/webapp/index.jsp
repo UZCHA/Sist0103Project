@@ -43,7 +43,8 @@
 		padding: 20px 20px;
 	}
 	div.main{
-		width: 1200px;
+		width: 100%;
+		max-width:1200px;
 		height: 700px;
 		font-family:'Sunflower';
 		font-size: 15pt;
