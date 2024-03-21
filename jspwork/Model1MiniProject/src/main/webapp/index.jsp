@@ -45,6 +45,7 @@
 	div.main{
 		width: 1200px;
 		height: 700px;
+		font-family:'Sunflower';
 		font-size: 15pt;
 		border: 0px groove purple;
 		left: 400px;

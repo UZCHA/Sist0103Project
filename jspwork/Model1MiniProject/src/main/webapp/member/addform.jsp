@@ -15,6 +15,11 @@
 			var id=$("#id").val();
 			//alert(id);
 			
+			if(id.trim() === "") {
+        $("span.idsuccess").text("아이디를 입력해주세요");
+        return; // Exit the function early if id is empty
+    }
+			
 			$.ajax({
 				type:"get",
 				url:"member/idCheck.jsp",
@@ -27,7 +32,8 @@
 						//alert("이미 가입된 아이디입니다.\n다시입력해 주세요.");		
 						$("span.idsuccess").text("가입불가");
 						$("#id").val("");
-					}else{
+					}	
+					else{
 						//alert("사용가능한 아이디입니다.");
 						$("span.idsuccess").text("가입가능");
 						}

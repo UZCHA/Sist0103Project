@@ -52,9 +52,9 @@ String root=request.getContextPath();
 					
 					<li><a href="#">로그인</a>
 						<ul class="sub-menu">
-							<li><a href="index.jsp?main=member/addform.jsp"><i class="icon-wrench"></i> 회원가입</a></li>
-							<li><a href="#"><i class="icon-credit-card"></i>회원 목록</a></li>
-							<li><a href="#"><i class="icon-gift"></i> 마이페이지</a></li>							
+							<li><a href="index.jsp?main=member/addform.jsp"><i class="bi bi-person-plus"></i> 회원가입</a></li>
+							<li><a href="index.jsp?main=member/memberlist.jsp"><i class="icon-credit-card"></i>회원 목록</a></li>
+							<li><a href="index.jsp?main=member/mypage.jsp"><i class="bi bi-person-circle"></i>마이페이지</a></li>							
 						</ul>
 					</li>
 					<li class="parent">

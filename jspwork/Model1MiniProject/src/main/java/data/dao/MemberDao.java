@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import data.dto.MemberDto;
 import mysql.DbConnect;
@@ -70,7 +72,7 @@ public class MemberDao {
 	 PreparedStatement pstmt=null;
 	 ResultSet rs=null;
 	 
-	 String sql="select name from member where id=?";
+	 String sql="select * from member where id=?";
 	 
 	 try {
 		pstmt=conn.prepareStatement(sql);
@@ -89,5 +91,87 @@ public class MemberDao {
 	 
 	 return name;
 	 
+ }
+ public List<MemberDto> getAllMemberd(){
+	 List<MemberDto> list=new ArrayList<MemberDto>();
+	 
+	 Connection conn=db.getConnection();
+	 PreparedStatement pstmt=null;
+	 ResultSet rs=null;
+	 
+	 String sql="select * from member order by id";
+	 
+	 try {
+		pstmt=conn.prepareStatement(sql);
+		rs=pstmt.executeQuery();
+		
+		while(rs.next()) {
+			MemberDto dto=new MemberDto();
+			dto.setNum(rs.getString("num"));
+			dto.setName(rs.getString("name"));
+			dto.setId(rs.getString("id"));
+			dto.setPass(rs.getString("pass"));
+			dto.setHp(rs.getString("hp"));
+			dto.setAddr(rs.getString("addr"));
+			dto.setEmail(rs.getString("email"));
+			dto.setGaipday(rs.getTimestamp("gaipday"));
+			
+			list.add(dto);
+		}
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}finally {
+		db.dbClose(rs, pstmt, conn);
+	}
+	 
+	 return list;
+ }
+ 
+ public void deleteMember(String num) {
+	 Connection conn=db.getConnection();
+	 PreparedStatement pstmt=null;
+	 
+	 String sql="delete from member where num=?";
+	 
+	 try {
+		pstmt=conn.prepareStatement(sql);
+		pstmt.setString(1, num);
+		pstmt.execute();
+		
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}finally {
+		db.dbClose(pstmt, conn);
+	}
+ }
+ 
+ //비밀번호 체크
+ public boolean isEqualPass(String num, String pass) {
+	 boolean b= false;
+	 
+	 Connection conn=db.getConnection();
+	 PreparedStatement pstmt=null;
+	 ResultSet rs=null;
+	 
+	 String sql="select * from member where num=? and pass=?";
+	 
+	 try {
+		pstmt=conn.prepareStatement(sql);
+		pstmt.setString(1, num);
+		pstmt.setString(2, pass);
+		rs=pstmt.executeQuery();
+		
+		if(rs.next()) {
+			b=true;
+		}
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}finally {
+		db.dbClose(rs, pstmt, conn);
+	}
+	 return b;
  }
 }
