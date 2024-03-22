@@ -224,4 +224,38 @@ public class MemberDao {
 	}
  }
  
+ public MemberDto getDataMember(String num) {
+	 MemberDto dto=new MemberDto();
+	 Connection conn=db.getConnection();
+	 PreparedStatement pstmt=null;
+	 ResultSet rs=null;
+	 
+	 String sql="select * from member where num=?";
+	 
+	 try {
+		pstmt=conn.prepareStatement(sql);
+		pstmt.setString(1, num);
+		rs=pstmt.executeQuery();
+		
+		if(rs.next()) {
+			dto.setNum(rs.getString("num"));
+			dto.setName(rs.getString("name"));
+			dto.setId(rs.getString("id"));
+			dto.setPass(rs.getString("pass"));
+			dto.setHp(rs.getString("hp"));
+			dto.setAddr(rs.getString("addr"));
+			dto.setEmail(rs.getString("email"));
+			dto.setGaipday(rs.getTimestamp("gaipday"));
+			
+		}
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}finally {
+		db.dbClose(rs, pstmt, conn);
+	}
+	 
+	 return dto;
+ }
+ 
 }

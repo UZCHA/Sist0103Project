@@ -11,6 +11,7 @@
 </head>
 <body>
 <%
+
 String id=request.getParameter("id");
 //세션에 저장된 loginok를 가져온다.
 String loginok=(String)session.getAttribute("loginok");
@@ -19,7 +20,7 @@ if(loginok==null)//로그아웃 상태
 {%>
 	<jsp:include page="loginform.jsp"/>
 <%}else{%>
-	<jsp:include page="logoutform.jsp?id=<%=id%>"/>
+	<jsp:include page="../layout/main.jsp"/>
 <%}
 
 %>

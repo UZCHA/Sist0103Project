@@ -83,12 +83,18 @@ function delfunc(num){
 	MemberDao dao=new MemberDao();
 	List<MemberDto> list=dao.getAllMemberd();
 	SimpleDateFormat sdf= new SimpleDateFormat("yyyy-MM-dd");
+	
+	String loginok=(String)session.getAttribute("loginok");
+	String myid=(String)session.getAttribute("myid");
 %>
 <body>
 <div style=" margin: 100px 100px; width: 800px;">
 		<table class="table table-bordered">
 			<%
-				for(MemberDto dto:list){%>
+				for(MemberDto dto:list){
+					if(loginok!=null && myid.equals(dto.getId())){
+				
+				%>
 				<tr>
 					<td rowspan="6" align="center"  valign="middle">
 						<img src="image2/flower_ani/redhair9.PNG" style="width: 100px;" id="mainimg" >
@@ -112,7 +118,8 @@ function delfunc(num){
 				</tr>
 				<tr>
 				<td colspan="2" align="center">
-						<button type="button" class="btn btn-outline-success">수정</button>
+						<button type="button" class="btn btn-outline-success"
+						onclick="location.href='index.jsp?main=member/updatepassform.jsp?num=<%=dto.getNum()%>'">수정</button>
 						<button type="button" class="btn btn-outline-danger" 
 						onclick="delfunc('<%=dto.getNum()%>')">탈퇴</button>
 				</td>
@@ -121,6 +128,7 @@ function delfunc(num){
 			<%}
 			
 			%>
+			<%}%>
 		</table>
 </div>
 <!-- The Modal -->

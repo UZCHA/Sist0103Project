@@ -18,11 +18,13 @@ String root=request.getContextPath();
 
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 <title>Insert title here</title>
-<style type="text/css">
 
-</style>
 </head>
+<%
+String myid=(String)session.getAttribute("myid");
+String loginok=(String)session.getAttribute("loginok");
 
+%>
 
 <body>
 	<!--  <a href="<%=root%>/">메인</a>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -44,7 +46,7 @@ String root=request.getContextPath();
 					<li class="parent">
 						<a href="#">게시판</a>
 						<ul class="sub-menu">
-							<li><a href="#"><i class="icon-wrench"></i> Q&A</a></li>
+							<li><a href="index.jsp?main=memberguest/guestlist.jsp"><i class="icon-wrench"></i> 회원방명록</a></li>
 							<li><a href="#"><i class="icon-credit-card"></i>고객 게시판</a></li>
 							<li><a href="#"><i class="icon-gift"></i> 이미지 게시판</a></li>							
 						</ul>
@@ -52,8 +54,18 @@ String root=request.getContextPath();
 					
 					<li><a href="#">회원</a>
 						<ul class="sub-menu">
-							<li><a href="index.jsp?main=member/addform.jsp"><i class="bi bi-person-plus"></i> 회원가입</a></li>
-							<li><a href="index.jsp?main=member/memberlist.jsp"><i class="icon-credit-card"></i>회원 목록</a></li>
+							<%
+								if(loginok==null){%>
+									<li><a href="index.jsp?main=member/addform.jsp"><i class="bi bi-person-plus"></i> 회원가입</a></li>
+								<%}
+							%>	
+							
+							<%
+								if(loginok!=null && myid.equals("admin")){%>
+									<li><a href="index.jsp?main=member/memberlist.jsp"><i class="icon-credit-card"></i>회원 목록</a></li>
+								<%}
+						
+							%>
 							<li><a href="index.jsp?main=member/mypage.jsp"><i class="bi bi-person-circle"></i>마이페이지</a></li>							
 							<li><a href="index.jsp?main=login/loginmain.jsp"><i class="bi bi-person-circle"></i>로그인</a></li>
 						</ul>
