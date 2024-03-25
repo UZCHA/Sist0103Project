@@ -22,8 +22,60 @@
  i.bi-pencil-square{
  	color: green;
  }
-
+ i.del,i.mod{
+ 	cursor: pointer;
+ }
+i.heart.active{
+	color: red;
+}
 </style>
+<script type="text/javascript">
+$(function(){
+	
+	$("span.likes").click(function(){
+		
+		var num=$(this).attr("num");
+		//alert(num);
+		var tag=$(this);
+		
+		$.ajax({
+			type:"get",
+			url:"memberguest/updateincrechu.jsp",
+			dataType:"json",
+			data:{"num":num},
+			success:function(data){
+				//alert(data.chu);
+				tag.next().text(data.chu);
+				
+				//하트의 animate
+				/*tag.next().next().animate({"font-size":"15px"},1000,function(){
+					//animation끝난후
+					$(this).css("font-size","0px");
+				})*/
+				tag.next().next().toggleClass("active");
+				
+			}
+			
+		})
+	
+	});
+	
+	//삭제
+	$("i.del").click(function(){
+		var num=$(this).attr("num");
+		var currentPage=$(this).attr("currentPage");
+		
+		//alert(num+","+currentPage);
+		var yes=confirm("삭제하시겠습니까?");
+		if(yes){
+			location.href='memberguest/delete.jsp?num='+num+'&currentPage='+currentPage;
+			
+		}
+		
+	});
+	
+});
+</script>
 </head>
 <body>
 <%
@@ -78,6 +130,14 @@ SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
 
 MemberDao adao=new MemberDao();
 
+//마지막 페이지의 단 한개남은 글을 삭제할때 빈페이지가 남는다.
+//그러므로 해당 페이지의 마지막글을 삭제할시 그 이전 페이지로 이동하게 한다.
+if(list.size()==0 && currentPage!=1)
+{%>
+	<script type="text/javascript">
+		location.href="index.jsp?main=memberguest/guestlist.jsp?currentPage=<%=currentPage-1%>";
+	</script>
+<%}
 
 %>
 
@@ -102,14 +162,24 @@ else{
 for(int i=0;i<list.size();i++){
 	GuestDto dto=list.get(i);
 	String name=adao.getName(dto.getMyid());
-	String photo=dto.getPhotoname();
+	//String photo=dto.getPhotoname();
 	%>
 	<div style="width: 630px; margin: 0 auto;" >
 	<table class="table table-bordered" style="width: 630px; min-height: 200px;">
-	<a style="float: right; margin-left: 10px;"><i class="bi bi-trash fs-5"></i></a>
-	<a style="float: right;"><i class="bi bi-pencil-square fs-5"></i></a>
+			<%
+				String myid=(String)session.getAttribute("myid");
+				//로그인한 아이디와 글을 쓴 아이디가 같을 경우에만 수정,삭제 보이게한다.
+				if(loginok!=null && dto.getMyid().equals(myid)){%>
+					<a style="float: right; margin-left: 10px;"><i class="bi bi-trash fs-5 del" 
+					num=<%=dto.getNum()%> currentPage=<%=currentPage %>></i></a>
+					<a style="float: right;"><i class="bi bi-pencil-square fs-5 mod"
+					onclick="location.href='index.jsp?main=memberguest/updateform.jsp?num=<%=dto.getNum()%>&currentPage=<%=currentPage%>'"></i></a>
+			<% }
+			%>
+	
 		<tr>
 			<td style="width:450px; font-size: 12pt;" >작성자: <%=name%>(<%=dto.getMyid()%>)</td>
+	
 			<td align="right" style="color: #ccc; font-size: 12pt;"><%=sdf.format(dto.getWriteday()) %></td>
 			
 		</tr>
@@ -119,13 +189,25 @@ for(int i=0;i<list.size();i++){
 			</td>
 			<td align="center" style="vertical-align: middle;">
 			<%
-				if(photo==null){%>
-					<span class="noimg">X</span>
+				if(dto.getPhotoname()==null){%>
+					<span>X</span>
 				<%}else{%>
-								
-				<img alt="" src="save/<%=dto.getPhotoname()%>" style="width: 100px; max-height: 200px;">
+				<a href="save/<%=dto.getPhotoname()%>" target="_blank">		
+					<img alt="" src="save/<%=dto.getPhotoname()%>" style="width: 100px; max-height: 200px;">
+				</a>	
 				<%}
 				%>
+			</td>
+		</tr>
+			<!-- 댓글&추천 -->
+		<tr>
+			<td>
+				<span class="answer" style="cursor: pointer;">댓글 0</span>
+				<span class="likes" style="margin-left: 20px; cursor: pointer;" 
+				num=<%=dto.getNum() %>>추천</span>
+				<span class="chu"><%=dto.getChu() %></span>
+				<i class="bi bi-suit-heart-fill heart" ></i>
+				
 			</td>
 		</tr>
 	</table>

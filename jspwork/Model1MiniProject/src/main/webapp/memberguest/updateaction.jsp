@@ -1,6 +1,7 @@
+<%@page import="org.apache.catalina.ant.jmx.JMXAccessorQueryTask"%>
+<%@page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
 <%@page import="data.dao.GuestDao"%>
 <%@page import="data.dto.GuestDto"%>
-<%@page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
 <%@page import="com.oreilly.servlet.MultipartRequest"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -15,9 +16,6 @@
 </head>
 <body>
 <%
-String myid=(String)session.getAttribute("myid");
-
-
 ServletContext context=getServletContext();
 String realpath=context.getRealPath("/save");
 
@@ -31,22 +29,30 @@ multi=new MultipartRequest(request,realpath,uploadsize,"utf-8",new DefaultFileRe
 
 String content=multi.getParameter("content");
 String photoname=multi.getFilesystemName("photo");
+String num=multi.getParameter("num");
+String currentPage=multi.getParameter("currentPage");
+
+//기존포토명 가져오기
+GuestDao dao=new GuestDao();
+String old_photoname=dao.getData(num).getPhotoname();
 
 //dto에 저장
 GuestDto dto=new GuestDto();
-dto.setMyid(myid);
+dto.setNum(num);
 dto.setContent(content);
-dto.setPhotoname(photoname);
 
-//insert한 후에 이동
-GuestDao dao=new GuestDao();
-dao.insertGuest(dto);
+//사진선택을 안하면 기존의 사진으로 저장되어야 함
+dto.setPhotoname(photoname==null?old_photoname:photoname);
+
+//수정하고 현재 페이지 그대로 있어야 함.
+dao.updateGuest(dto);
 //방명록 목록으로 이동
-response.sendRedirect("../index.jsp?main=memberguest/guestlist.jsp");
+response.sendRedirect("../index.jsp?main=memberguest/guestlist.jsp?currentPage="+currentPage);
 
 }catch(Exception e){
 	
 }
 %>
+
 </body>
 </html>
