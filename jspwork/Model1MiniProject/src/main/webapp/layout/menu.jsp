@@ -77,6 +77,21 @@ String loginok=(String)session.getAttribute("loginok");
 							<li><a href="#">Medium Image</a></li>
 						</ul>
 					</li>
+					<li class="parent">
+						<a href="#">shop</a>
+						<ul class="sub-menu">
+						<%
+							if(loginok!=null && myid.equals("admin")){%>
+								<li><a href="index.jsp?main=shop/addform.jsp">상품등록</a></li>
+								<li><a href="index.jsp?main=shop/shoplist.jsp">상품목록</a></li>
+								
+							<%}else{%>
+								<li><a href="index.jsp?main=shop/shoplist.jsp">상품목록</a></li>
+							<%}
+						%>
+							
+						</ul>
+					</li>
 					<li><a href="#">찾아오시는 길</a></li>
 				</ul>
 			</nav>

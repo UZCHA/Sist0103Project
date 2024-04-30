@@ -1,3 +1,4 @@
+<%@page import="data.dao.SmartAnswerDao"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="data.dao.SmartDao"%>
 <%@page import="data.dto.SmartDto"%>
@@ -53,7 +54,7 @@
 				alert("선택된 게시글이 없습니다.");
 			}else{
 				if(confirm(len+"개의 글을 삭제하시겠습니까?")){
-					//체크된곳의 value값(num)얻디
+					//체크된곳의 value값(num)얻기
 					var n="";
 					$(".alldel:checked").each(function(idx){
 						n+=$(this).val()+",";
@@ -118,6 +119,14 @@ List<SmartDto> list=dao.getList(startNum, perPage);
 //List<SimpleBoardDto> list=dao.getAllDatas(); 이건 이제 주석처리
 
 SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm");
+
+//댓글개수 표시
+SmartAnswerDao adao=new SmartAnswerDao();
+for(SmartDto dto:list){
+	//댓글변수에 댓글 총 갯수 넣기
+	int acount=adao.getAnswerList(dto.getNum()).size();
+	dto.setAnswercount(acount);
+}
 %>
 </head>
 <body>
@@ -148,7 +157,14 @@ SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm");
 								<%=no-- %>
 							</td>
 							<td><a href='index.jsp?main=smartboard/contentview.jsp?num=<%=dto.getNum()%>&currentPage=<%=currentPage%>'>
-							<span class="title"> <%=dto.getSubject() %></span></a></td>
+							<span class="title"> <%=dto.getSubject() %></span></a>
+							<%
+								if(dto.getAnswercount()>0){%>
+									<a href='index.jsp?main=smartboard/contentview.jsp?num=<%=dto.getNum()%>&currentPage=<%=currentPage%>'
+									style="color: red;">[<%=dto.getAnswercount() %>]</a>
+								<%}
+							%>
+							</td>
 							<td align="center"><%=dto.getWriter()%></td>
 							<td align="center"><%=sdf.format(dto.getWriteday()) %></td>
 							<td align="center"><%=dto.getReadcount() %></td>

@@ -21,17 +21,42 @@ table th{
 	padding-top: 20px;
 	font-size: 0.9em;
 }
+#result{
+	
+}
 
 </style>
 <script type="text/javascript">
 $(function(){
 	
+	$("#idresult").hide();
+	
 	$("#idsearchbtn").click(function(){
 		var name=$("#name").val();
 		var hp2=$("#hp2").val();
 		
-		alert(name+","+hp2);
+		//alert(name+","+hp2);
 	
+		$.ajax({
+			type:"post",
+			url:"idsearchaction.jsp",
+			dataType:"json",
+			data:{"name":name,"hp2":hp2},
+			success:function(res){
+				//alert("성공");
+				//alert(res.memid);
+				$("#idsearch").hide();
+				$("#idresult").show();
+				if(res.memid==""){
+					$("#result").html("일치하는 아이디가 없습니다.<br>이름과 핸드폰 번호 다시 확인바랍니다.");
+					
+				}else{
+					$("#result").html("<b>"+name+"</b>"+"님의 아이디는"+"<b>"+res.memid+"</b>입니다.");
+					
+				}
+			
+			}
+		})
 		
 	})
 	
@@ -40,9 +65,10 @@ $(function(){
 
 </head>
 <body>
+<div id="idsearch">
 	<h3 style="margin-left:840px;margin-top:50px; width: 500px; color: green;font-weight: bold;">휴대폰 본인확인</h3>
 <div style="width: 500px;  margin: 0 auto; margin-top: 50px; border: 1px solid gray; border-radius: 10px;">
-	<form style="margin:50px;" action="#" method="post">
+	<form style="margin:50px;" action="#" method="post" >
 
 		<table style="margin: 0 auto;">
 			<tr>
@@ -60,7 +86,7 @@ $(function(){
 			<tr>
 				<td>
 					<input type="text" name="hp2" id="hp2" placeholder="핸드폰 번호를 입력해 주세요."
-					style="width: 250px;height: 40px;">
+					style="width: 250px;height: 40px;" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
 				</td>
 			</tr>
 		</table>
@@ -69,6 +95,18 @@ $(function(){
 			<span> <a>비밀번호 찾기</a></span>
 		</div>
 	</form>
+</div>
+</div>
+
+<div id="idresult">
+<h3 style="margin-left:840px;margin-top:50px; width: 500px; color: green;font-weight: bold;">아이디 확인</h3>
+<div style="width: 500px;  margin: 0 auto; margin-top: 50px; border: 1px solid gray; border-radius: 10px;">
+	<form style="margin:50px; padding-left: 20px;" action="#" method="post" >
+		<span id="result"></span>
+		<hr>
+		<button type="button" onclick="location.href='loginform.jsp'">로그인</button>
+	</form>
+</div>
 </div>
 </body>
 </html>

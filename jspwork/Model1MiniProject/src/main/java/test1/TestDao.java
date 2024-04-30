@@ -64,7 +64,7 @@ public class TestDao {
 		return isid;
 	}
 	
-	//nick중복방지
+	//nick중복방지하기 위한것
 	public int nickcount(String nick) {
 		int isnick=0;
 		Connection conn=db.getConnection();
@@ -118,7 +118,7 @@ public class TestDao {
 		return idpass;
 	}
 	
-	//아이디 찾기(이름과 번호를 이용해서)
+	//아이디 찾기 #1(이름과 번호를 이용해서)
 	public String idsearch(String name, String hp2) {
 		String b="";
 		Connection conn=db.getConnection();
@@ -145,6 +145,64 @@ public class TestDao {
 		}
 		
 		return b;
+	}
+//아이디 찾기 #2(이름과 이메일을이용해서)
+	public String idsearchtwo(String name, String email) {
+		String b="";
+		Connection conn=db.getConnection();
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		
+		String sql="select id from test1 where name=? and email=?";
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, name);
+			pstmt.setString(2, email);
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()) {
+				b=rs.getString("id");
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			db.dbClose(rs, pstmt, conn);
+		}
+		
+		return b;
+	}
+	
+	//이름, 전화번호, 아이디를 통해서 비밀번호 찾기
+	public String passSearch(String name, String hp2,String id) {
+		String p="";
+		
+		Connection conn=db.getConnection();
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		
+		String sql="select pass from test1 where name=? and hp2=? and id=?";
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, name);
+			pstmt.setString(2, hp2);
+			pstmt.setString(3, id);
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()) {
+				p=rs.getString("pass");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			db.dbClose(rs, pstmt, conn);
+		}
+		
+		return p;
 	}
 
 }

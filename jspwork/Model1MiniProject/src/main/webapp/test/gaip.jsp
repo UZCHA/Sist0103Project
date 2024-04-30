@@ -26,9 +26,9 @@
 	.swal-footer{
 		text-align: center;
 	}
-	.swal-button {
+	/*.swal-button {
 		background-color: tomato;
-	}
+	}*/
 	.swal-title,.swal-text{
 		font-family: 'Orbit-Regular';
 		font-weight: 100;
@@ -38,6 +38,8 @@
 		color: white;
 		border-radius: 5px;
 		border:0px;
+		height: 40px;
+		margin-left: 10px;
 	}
 
 @font-face {
@@ -59,11 +61,15 @@
 		$("#ddd").hide();
 		$("#aaa").hide();
 		
+		var isIdChecked = false;
+		
+		//아이디 중복체크
 		$("#btnidcheck").click(function(){
 			
 			var id=$("#id").val();
 			//alert(id);
 			
+			//아이디를 입력하지 않았을 때 발생하는 경고창
 			if(id.trim() === "") {
        alert("아이디를 입력해주세요.")
         return; // Exit the function early if id is empty
@@ -77,20 +83,23 @@
 				success:function(res){
 					//alert("중복체크확인");
 					
+					//아이디가 중복일 경우
 					if(res.idcount==1){
 						$("#ddd").show();
 						$("#id").val("");
-						$("#ddd").text("사용할 수 없는 아이디입니다. 다른 아이디를 입력해주세요.").css("color","red");
+						$("#ddd").html("<i class='bi bi-exclamation-triangle'></i>사용할 수 없는 아이디입니다. 다른 아이디를 입력해주세요.").css("color","red");
 					}else {
 						$("#ddd").show();
-						$("#ddd").text("사용 가능한 아이디입니다.").css("color","green");
+						$("#ddd").html("<i class='bi bi-check-circle'></i>사용 가능한 아이디입니다.").css("color","green");
 					}
 				}
 				
 			})
 			
+			isIdChecked = true;
 		});
 		
+		//닉네임의 중복여부는 닉네임을 입력하고 다음 칸으로 떠날 때 알 수 있음. (blur)
 		$("#nick").on("blur",function(){
 			var nick=$(this).val();
 			//console.log(nick);
@@ -109,10 +118,10 @@
 				success:function(res){
 					if(res.nickcount==1){
 						$("#aaa").show();
-						$("#aaa").text("사용할 수 없는 닉네임입니다. 다른 닉네임을 입력해주세요.").css("color","red");
+						$("#aaa").html("<i class='bi bi-exclamation-triangle'></i>사용할 수 없는 닉네임입니다. 다른 닉네임을 입력해주세요.").css("color","red");
 					}else {
 						$("#aaa").show();
-						$("#aaa").text("사용 가능한 닉네임입니다.").css("color","green");
+						$("#aaa").html("<i class='bi bi-check-circle'></i>사용 가능한 닉네임입니다.").css("color","green");
 					}
 				}
 				
@@ -131,6 +140,11 @@
 				f.pass2.value="";
 				return false;
 			}
+			
+			  if (!isIdChecked) {
+	                alert("아이디 중복 확인을 해주세요.");
+	                return;
+	            }
 			
 			var name=$("#name").val();
 			swal("회원가입 완료",name+"님의 회원가입이 성공적으로 완료되었습니다.","success")
@@ -160,7 +174,7 @@
 </script>
 </head>
 <body>
-<div  style="width: 500px; margin: 0 auto; margin-top: 100px; border: 1px solid gray; border-radius: 10px;">
+<div  style="width: 500px; margin: 0 auto; margin-top: 100px; border: 1px solid #ccc; border-radius: 10px;">
 
 	<form style="margin: 50px;" action="gaipaction.jsp" method="post" onsubmit="return check(this)">
 	
@@ -169,49 +183,47 @@
 			<tr>
 				
 				<td >
-					<input  type="text" placeholder="아이디"  style="width: 250px;"required="required"
+					<input  type="text" placeholder=" 아이디"  style="width: 250px;"required="required"
 					name="id" id="id">		
 					<button type="button" class="btn btn-outline-success btn-sm" style="width: 100px;"
 					id="btnidcheck">중복확인</button>
+					<div style="width: 400px;">
+						<span id="ddd" style="font-size: 14px;"></span>
+					</div>
 				</td>
 			</tr>
-			<tr id="ddd">
-				<td>
-					<span style="width: 250px;" id="idcheck"></span>
-				</td>
-			</tr>
+
 			<tr>
 				<td>
-					<input type="text" placeholder="닉네임(1~6글자)" style="width: 350px;" required="required"
+					<input type="text" placeholder=" 닉네임(1~6글자)" style="width: 350px;" required="required"
 					name="nick" id="nick" maxlength="6" >
+					<div style="width: 400px;">
+						<span id="aaa" style="font-size: 14px;"></span>
+					</div>
 				</td>
 			</tr>
-			<tr id="aaa">
-				<td>
-					<span style="width: 250px;" id="nickcheck" ></span>
-				</td>
-			</tr>
+
 			<tr>
 				<td >
-					<input type="password" placeholder="비밀번호" style="width: 350px;" required="required"
+					<input type="password" placeholder=" 비밀번호" style="width: 350px;" required="required"
 					name="pass" >
 				</td>
 			</tr>
 			<tr>
 				<td >
-					<input type="password" placeholder="비밀번호 확인" style="width: 350px;" required="required"
+					<input type="password" placeholder=" 비밀번호 확인" style="width: 350px;" required="required"
 					name="pass2">
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<input type="text" placeholder="[선택]이메일 주소(본인 확인용) " style="width: 350px;"
+					<input type="text" placeholder=" [선택]이메일 주소(본인 확인용) " style="width: 350px;"
 					name="email" id="email">
 				</td>
 			</tr>	
 			<tr>
 				<td>
-					<input type="text" placeholder="이름" style="width: 350px;" required="required"
+					<input type="text" placeholder=" 이름" style="width: 350px;" required="required"
 					name="name" id="name">
 				</td>
 			</tr>
@@ -230,8 +242,8 @@
 						<option value="KT">KT</option>
 						<option value="알뜰폰">알뜰폰</option>
 					</select>
-					<input type="text" placeholder="휴대전화번호('-'생략)" style="width: 300px;" required="required"
-					name="hp2" id="hp2">
+					<input type="text" placeholder="휴대전화번호('-'생략)" style="width: 280px;" required="required"
+					name="hp2" id="hp2"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
 				</td>
 			</tr>
 			<tr>

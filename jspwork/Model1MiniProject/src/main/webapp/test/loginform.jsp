@@ -79,7 +79,7 @@ if(saveok!=null){
 		</div>
 	</form>
 	<div align="center" style="margin-bottom: 30px;">
-		<span><a>아이디 찾기</a></span>&nbsp;&nbsp;
+		<span><a href='idsearch.jsp'>아이디 찾기</a></span>&nbsp;&nbsp;
 		|
 		<span><a>비밀번호 찾기</a></span>&nbsp;&nbsp;
 		|
