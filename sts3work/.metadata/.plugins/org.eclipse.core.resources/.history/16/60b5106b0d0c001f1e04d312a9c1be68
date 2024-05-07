@@ -1,0 +1,12 @@
+package spring.mvc.test;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
+public class InfoController {
+	@GetMapping("/info/myform")
+	public String myform() {
+		return "info/infoform";//WEB-INF/info/infoform.jsp¸¦ ÀÇ¹Ì
+	}
+}

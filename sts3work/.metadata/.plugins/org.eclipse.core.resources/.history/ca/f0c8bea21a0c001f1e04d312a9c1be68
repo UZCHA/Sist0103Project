@@ -1,0 +1,23 @@
+package spring.day0507.rainy;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+
+@Controller
+public class FormDataController {
+	
+	@GetMapping("/shop/form1")
+	public String form1() {
+		return "day0507/form1";
+	}
+	@PostMapping("/shop/read1")
+	public ModelAndView read1(@RequestParam String irum,
+			@RequestParam String gender,
+			@RequestParam String addr) {
+		ModelAndView model=new ModelAndView();
+		return model;
+	}
+}

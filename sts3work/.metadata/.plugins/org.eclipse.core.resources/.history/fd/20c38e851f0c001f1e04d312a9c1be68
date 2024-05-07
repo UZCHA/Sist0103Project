@@ -1,0 +1,5 @@
+package spring.day0507.data;
+
+public class ShopDto {
+
+}

@@ -1,0 +1,44 @@
+package spring.mvc.quiz;
+
+import java.util.ArrayList;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
+
+@Controller
+public class TestController {
+
+	@GetMapping("/")
+	public String start()
+	{
+		return "redirect:quiz/myshop";
+	}
+	
+	@GetMapping("/quiz/myshop")
+	public String form()
+	{
+		return "day0507Quiz/quizUploadForm";
+	}
+	
+	@GetMapping("/quiz/shopwrite")
+	public String upload() {
+		return "day0507Quiz/quizUploadWrite";
+	}
+	
+	@PostMapping("/quiz/shopwrite")
+	public ModelAndView read(@RequestParam String sang,
+			@RequestParam ArrayList<MultipartFile> photo,
+			@RequestParam String price,
+			@RequestParam String ipgoday,
+			HttpServletRequest request) {
+		ModelAndView mview=new ModelAndView();
+		return mview;
+	}
+	
+}

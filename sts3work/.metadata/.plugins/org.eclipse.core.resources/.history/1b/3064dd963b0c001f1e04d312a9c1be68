@@ -1,0 +1,21 @@
+package spring.mvc.quiz;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
+public class TestController {
+
+	@GetMapping("/")
+	public String start()
+	{
+		return "redirect:day0507Quiz/quizUploadForm";
+	}
+	
+	@GetMapping("/day0507Quiz/quizUploadForm")
+	public String form()
+	{
+		return "quizUploadForm";
+	}
+	
+}

@@ -1,0 +1,16 @@
+
+5월 07, 2024 09:17:30.388 NEW SESSION
+5월 07, 2024 09:17:30.388 Created TensorFlow Lite XNNPACK delegate for CPU.
+5월 07, 2024 09:55:23.695 Created TensorFlow Lite XNNPACK delegate for CPU.
+5월 07, 2024 09:58:37.194 Created TensorFlow Lite XNNPACK delegate for CPU.
+5월 07, 2024 12:34:43.597 [15736:12528:0507/123443.597:ERROR:interface_endpoint_client.cc(707)] Message 5 rejected by interface blink.mojom.WidgetHost
+5월 07, 2024 12:34:50.27 [15736:10232:0507/123450.026:ERROR:cert_verify_proc_builtin.cc(1052)] CertVerifyProcBuiltin for global.ib-ibi.com failed:
+5월 07, 2024 12:34:50.27 ----- Certificate i=0 (CN=*.ib-ibi.com,O=KBM Group LLC,L=Louisville,ST=Colorado,C=US) -----
+5월 07, 2024 12:34:50.28 ERROR: Time is after notAfter
+5월 07, 2024 12:34:50.30 
+5월 07, 2024 12:34:50.31 
+5월 07, 2024 12:34:50.171 [15736:10232:0507/123450.171:ERROR:cert_verify_proc_builtin.cc(1052)] CertVerifyProcBuiltin for global.ib-ibi.com failed:
+5월 07, 2024 12:34:50.171 ----- Certificate i=0 (CN=*.ib-ibi.com,O=KBM Group LLC,L=Louisville,ST=Colorado,C=US) -----
+5월 07, 2024 12:34:50.171 ERROR: Time is after notAfter
+5월 07, 2024 12:34:50.171 
+5월 07, 2024 12:34:50.171 

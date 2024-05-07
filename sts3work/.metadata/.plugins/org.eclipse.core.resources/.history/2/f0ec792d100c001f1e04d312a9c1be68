@@ -1,0 +1,19 @@
+package spring.mvc.test;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+
+@Controller
+public class InfoController {
+	
+	@GetMapping("/info/myform")
+	public String myform() {
+		return "info/infoform";//WEB-INF/info/infoform.jsp¸¦ ÀÇ¹Ì
+	}
+	
+	@GetMapping("/info/read")
+	public String result(@ModelAttribute("dto") InfoDto dto) {
+		return "info/infowrite";
+	}
+}

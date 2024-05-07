@@ -1,0 +1,14 @@
+package spring.day0507.rainy;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+
+@Controller
+public class PhotoUploadController {
+	
+	//업로드폼1로 가기
+	@PostMapping("/board/uploadform1")
+	public String uploadform1() {
+		return("/board/uploadform1");
+	}
+}
