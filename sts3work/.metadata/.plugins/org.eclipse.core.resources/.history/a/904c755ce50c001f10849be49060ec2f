@@ -1,0 +1,22 @@
+package spring.db.may;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
+public class CarController {
+	
+	@Autowired
+	SpringCarDaoInter carInter;
+	
+	@GetMapping("/samsung/list")
+	public String list(Model model) {
+		//da로부터 총갯수 저장
+		int totalCount=carInter.getTotalCount();
+		//request에 저장
+		model.addAttribute("totalcount",totalcount);
+		return "car/carlist";
+	}
+}

@@ -1,0 +1,9 @@
+package spring.mysql.coffee;
+
+public class MyShopDto {
+	private String num;
+	private String sangpum;
+	private String color;
+	private String price;
+	private String imagename;
+}

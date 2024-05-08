@@ -1,0 +1,6 @@
+package spring.db.may;
+
+public interface SpringCarDaoInter {
+	
+	public int getTotalCount();
+}

@@ -1,0 +1,30 @@
+package spring.db.carmember;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
+public class CarMemberController {
+	@Autowired
+	CarMemberDaoInter memberInter;
+	
+	@GetMapping("/manager/list")
+	public String list(Model model) {
+		int totalCount=memberInter.getTotalCount();
+		model.addAttribute("totalCount", totalCount);
+		
+		List<CarMemberDto> list=memberInter.getAllMembers();
+		model.addAttribute("list", list);
+		
+		return "carmember/memberlist";
+	}
+	
+	@GetMapping("/manager/writeform")
+	public String memberform() {
+		return "carmember/memberform";
+	}
+}

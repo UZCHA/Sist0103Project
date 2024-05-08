@@ -1,0 +1,5 @@
+package spring.mysql.coffee;
+
+public class MyShopDto {
+
+}

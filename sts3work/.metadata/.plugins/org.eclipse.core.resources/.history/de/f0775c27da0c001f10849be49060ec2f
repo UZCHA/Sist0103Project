@@ -1,0 +1,10 @@
+package spring.mysql.coffee;
+
+import java.util.List;
+
+public class MyShopDao {
+	
+	public List<MyShopDto> getAllList(){
+		
+	}
+}
