@@ -1,7 +1,2 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<typeInfoHistroy>
-    <typeInfo handle="=SpringXmlEx1/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;spring.di.ex1{MessageInter.java[MessageInter" modifiers="513" timestamp="1714439270576"/>
-    <typeInfo handle="=SpringAnnoEx2/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;spring.day0430.anno1{DaoInter.java[DaoInter" modifiers="513" timestamp="1714453877852"/>
-    <typeInfo handle="=SpringAnnoEx2/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;spring.day0430.anno2{Manggo.java[Manggo" modifiers="513" timestamp="1714457198670"/>
-    <typeInfo handle="=SpringAnnoEx2/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;spring.last.anno{ShopDaoInter.java[ShopDaoInter" modifiers="513" timestamp="1714461305551"/>
-</typeInfoHistroy>
+<typeInfoHistroy/>
