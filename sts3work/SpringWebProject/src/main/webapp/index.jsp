@@ -15,6 +15,9 @@
 <div style="margin: 100px 100px;">
 	<button type="button" class="btn btn-outline-primary"
 	onclick="location.href='member/list'">회원명단</button>
+	<br><br>
+	<button type="button" class="btn btn-outline-primary"
+	onclick="location.href='board/list'">파일업로드 게시판</button>
 </div>
 </body>
 </html>

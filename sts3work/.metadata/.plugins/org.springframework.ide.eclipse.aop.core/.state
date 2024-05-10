@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aop-reference-model>
+<aop-project name="SpringDbTest"/>
+<aop-project name="SpringMvcJsonEx7"/>
+<aop-project name="SpringMysqlMybatis"/>
 <aop-project name="SpringMvcFileUploadEx6"/>
 <aop-project name="SpringMvcUploadQuiz"/>
+<aop-project name="SpringWebProject"/>
 <aop-project name="SpringXmlEx1"/>
 <aop-project name="SpringMvcTest"/>
 <aop-project name="SpringAnnoEx2"/>

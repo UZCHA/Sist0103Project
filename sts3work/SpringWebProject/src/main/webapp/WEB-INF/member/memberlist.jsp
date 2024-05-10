@@ -10,6 +10,32 @@
 <link href="https://fonts.googleapis.com/css2?family=Dongle&family=Gaegu&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@100..900&family=Noto+Serif+KR&display=swap" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 <title>Insert title here</title>
+<script type="text/javascript">
+$(function(){
+	
+
+	
+	$("#delbtn").click(function(){
+	
+		var num=$(this).attr("num");
+		//alert(num);
+		
+		$.ajax({
+			type:"get",
+			url:"delete",
+			data:{"num":num},
+			dataType:"html",
+			success:function(){
+				location.reload();
+			}
+			
+		})
+	
+		
+	})
+	
+})
+</script>
 </head>
 <body>
 	<div>
@@ -37,8 +63,8 @@
 				<td>${dto.hp }</td>
 				<td>${dto.gaipday }</td>
 				<td>
-					<button type="button" onclick="location.href=''">수정</button>
-					<button type="button" onclick="location.href=''">삭제</button>
+					<button type="button" onclick="location.href='updateform?num=${dto.num}'">수정</button>
+					<button type="button" id="delbtn" num='${dto.num }' onclick="location.href='delete?num=${dto.num}'">삭제</button>
 				</td>
 			</tr>
 		</c:forEach>

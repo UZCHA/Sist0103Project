@@ -7,6 +7,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("/member")
@@ -53,6 +55,42 @@ public class MemberController {
 	@PostMapping("/gaip")
 	public String insert(@ModelAttribute MemberDto dto) {
 		memInter.insertMember(dto);
+		return "redirect:list";
+	}
+	
+	@GetMapping("/updateform")
+	public ModelAndView upform(@RequestParam String num) {
+		ModelAndView model=new ModelAndView();
+		MemberDto dto=memInter.getMember(num);
+		//dto를 request에 저장
+		model.addObject("dto",dto);
+		//포워드
+		model.setViewName("member/updateform");
+		return model;
+	}
+	
+	@PostMapping("/update")
+	public String update(@ModelAttribute MemberDto dto) {
+		
+		//먼저 비번이 맞는지 체크
+		int n=memInter.passCheck(dto.getNum(), dto.getPass());
+		
+		if(n==1) {
+			//비번이 맞으므로 수정후 목록으로 이동
+			memInter.updateMember(dto);
+			return "redirect:list";
+		}else {
+			//비번이 틀렸을때 alert창 띄움
+			return "member/passfail";
+		}
+		
+	
+	}
+	
+	@GetMapping("/delete")
+	@ResponseBody
+	public String delete(@RequestParam String num) {
+		memInter.deleteMember(num);
 		return "redirect:list";
 	}
 	

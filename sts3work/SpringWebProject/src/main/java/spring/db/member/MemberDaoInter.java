@@ -8,4 +8,11 @@ public interface MemberDaoInter {
 	public void insertMember(MemberDto dto);
 	public List<MemberDto> getAllGaipMembers();
 	public int getTotalGaipSu();
+	
+	
+	public MemberDto getMember(String num);
+	public int passCheck(String num,String pass);
+	public void updateMember(MemberDto dto);
+	
+	public void deleteMember(String num);
 }

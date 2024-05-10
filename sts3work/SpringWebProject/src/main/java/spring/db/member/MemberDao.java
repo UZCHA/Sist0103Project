@@ -1,5 +1,6 @@
 package spring.db.member;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -35,6 +36,36 @@ public class MemberDao implements MemberDaoInter {
 	public int getTotalGaipSu() {
 		// TODO Auto-generated method stub
 		return session.selectOne("totalGaipSu");
+	}
+	
+	//¼öÁ¤
+	@Override
+	public MemberDto getMember(String num) {
+		// TODO Auto-generated method stub
+		return session.selectOne("selectOneOfMember", num);
+	}
+
+	@Override
+	public int passCheck(String num, String pass) {
+		// TODO Auto-generated method stub
+		HashMap<String, String> map=new HashMap<String, String>();
+		map.put("num", num);
+		map.put("pass", pass);
+		return session.selectOne("passCheckOfMember", map);
+	}
+
+	@Override
+	public void updateMember(MemberDto dto) {
+		// TODO Auto-generated method stub
+		session.update("updateOfMember", dto);
+		
+	}
+
+	@Override
+	public void deleteMember(String num) {
+		// TODO Auto-generated method stub
+		session.delete("deleteOfMember", num);
+		
 	}
 
 }

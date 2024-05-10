@@ -2,19 +2,43 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  <mapper namespace="MemberDao">
+ 	 <!-- 아이디 중복체크 -->
    <select id="idCheckOfMember" resultType="int" parameterType="String">
      select count(*) from smember where id=#{id}
    </select>
    
+   <!-- 회원가입 insert -->
    <insert id="insertOfMember" parameterType="dto">
    	insert into smember (name,id,pass,hp,gaipday) values(#{name},#{id},#{pass},#{hp},#{gaipday})
    </insert>
    
+   <!-- 회원 리스트 출력 list -->
    <select id="getAllOfGaipMember" resultType="dto">
    	select * from smember order by num desc
    </select>
    
-   <select id="TotalGaipSu" resultType="int">
+   <!-- 총 가입회원수 -->
+   <select id="totalGaipSu" resultType="int">
    	select count(*) from smember
    </select>
+   
+   <!-- 수정할 정보 -->
+   <select id="selectOneOfMember" parameterType="String" resultType="dto">
+   	select * from smember where num=#{num}
+   </select>
+   
+   <!-- 수정전에 비밀번호 확인/parameterType이 2개일때는 Map이나 HashMap으로 써준다  -->
+    <select id="passCheckOfMember" parameterType="HashMap" resultType="int">
+      select count(*) from smember where num=#{num} and pass=#{pass}
+   </select>
+   
+   <!-- 수정 -->
+   <update id="updateOfMember" parameterType="dto">
+   	update smember set name=#{name},hp=#{hp} where num=#{num}
+   </update>
+   
+   <!-- 삭제 -->
+   <delete id="deleteOfMember" parameterType="String">
+   	delete from smember where num=#{num}
+   </delete>
  </mapper>
