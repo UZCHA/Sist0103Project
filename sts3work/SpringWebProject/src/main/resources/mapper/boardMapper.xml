@@ -17,6 +17,11 @@
  	<select id="selectAllOfBoard" resultType="bdto">
  		select * from sboard order by num desc
  	</select>
+ 	
+ 	<!-- 사진만 있는 형태의 리스트를 출력할때 -->
+ 	<select id="selectPhotoOfBoard" resultType="bdto">
+ 		select * from sboard where photo!='no' order by num desc
+ 	</select>
 
  	<!-- 페이징 -->
  	<select id="selectPagingListOfMember" parameterType="HashMap" resultType="bdto">
@@ -30,4 +35,16 @@
  	<update id="updateReadCountOfBoard" parameterType="int">
  		update sboard set readcount=readcount+1 where num=#{num}
  	</update>
+ 	
+ 	<update id="updateOfBoard" parameterType="bdto">
+ 		update sboard set subject=#{subject},content=#{content}
+ 		<if test="photo!=null">
+ 			,photo=#{photo}
+ 		</if>
+ 		where num=#{num}
+ 	</update>
+ 	
+ 	<delete id="deleteOfBoard" parameterType="int">
+ 		delete from sboard where num=#{num}
+ 	</delete>
  </mapper>

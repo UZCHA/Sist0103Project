@@ -2,6 +2,8 @@ package spring.db.board;
 
 import java.util.List;
 
+import org.apache.taglibs.standard.lang.jstl.test.beans.PublicBean1;
+
 public interface BoardDaoInter {
 	
 	public int getTotalCount();
@@ -11,4 +13,7 @@ public interface BoardDaoInter {
 	public BoardDto getData(int num);
 	public void updateReadcount(int num);
 	public List<BoardDto> getList(int start, int perpage);
+	public void updateBoard(BoardDto dto);
+	public void deleteBoard(int num);
+	public List<BoardDto> getPhotoLists();
 }
