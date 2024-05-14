@@ -28,3 +28,10 @@
 
 5월 13, 2024 09:10:21.588 NEW SESSION
 5월 13, 2024 09:10:21.588 Created TensorFlow Lite XNNPACK delegate for CPU.
+
+5월 14, 2024 09:13:19.260 NEW SESSION
+5월 14, 2024 09:13:19.260 Created TensorFlow Lite XNNPACK delegate for CPU.
+5월 14, 2024 09:13:40.03 [15252:5808:0514/091340.002:ERROR:connection_factory_impl.cc(434)] Failed to connect to MCS endpoint with error -118
+5월 14, 2024 12:13:45.700 Created TensorFlow Lite XNNPACK delegate for CPU.
+5월 14, 2024 12:14:06.698 [9264:16532:0514/121406.697:ERROR:connection_factory_impl.cc(434)] Failed to connect to MCS endpoint with error -118
+5월 14, 2024 12:19:28.120 Created TensorFlow Lite XNNPACK delegate for CPU.

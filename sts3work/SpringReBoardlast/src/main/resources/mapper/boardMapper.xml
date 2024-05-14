@@ -34,4 +34,21 @@
 	<select id="getDataOfBoard" parameterType="int" resultType="bdto">
 		select * from reboard where num=#{num}
 	</select>
+	
+	<!-- 수정 및 삭제에 필요한 비밀번호 체크 확인 -->
+	<select id="CheckEqualPassOfBoard" parameterType="HashMap" resultType="int">
+		select count(*) from reboard where num=#{num} and pass=#{pass}
+	</select>
+	
+	<update id="UpdateOfBoard" parameterType="bdto">
+		update reboard set writer=#{writer}, subject=#{subject},content=#{content}
+		<if test="photo!='no'">
+			,photo=#{photo}
+		</if>
+		where num=#{num}
+	</update>
+	
+	<delete id="DeleteOfBoard" parameterType="int">
+		delete from reboard where num=#{num}
+	</delete>
  </mapper>

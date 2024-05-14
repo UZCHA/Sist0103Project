@@ -14,7 +14,14 @@ public class BoardDto {
 	private String content;
 	private String photo;
 	private Timestamp writeday;
+	private int acount; //´ñ±Û°¹¼ö
 	
+	public int getAcount() {
+		return acount;
+	}
+	public void setAcount(int acount) {
+		this.acount = acount;
+	}
 	public int getNum() {
 		return num;
 	}

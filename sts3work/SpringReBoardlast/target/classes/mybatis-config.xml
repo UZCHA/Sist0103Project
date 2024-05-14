@@ -4,6 +4,7 @@
 	<!--mapper에서 매칭할 parmeter Type 별칭 설정-->
 	<typeAliases>
 		<typeAlias type="spring.mvc.data.BoardDto" alias="bdto"/>
+		<typeAlias type="spring.mvc.answerdata.AnswerDto" alias="adto"/>
 	</typeAliases>
 
 </configuration>
