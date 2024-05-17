@@ -1,5 +1,0 @@
-package spring.mysql.coffee;
-
-public interface MyShopDaoInter {
-
-}

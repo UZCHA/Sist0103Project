@@ -7,9 +7,9 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@ComponentScan({"myshop.data"})
-@EntityScan("myshop.data") //dto를 인식시켜주는 것
-@EnableJpaRepositories("myshop.data") //dao 인식시켜주는 것
+@ComponentScan({"myshop.data","info.data"})
+@EntityScan("*.data") //dto를 인식시켜주는 것
+@EnableJpaRepositories("*.data") //dao 인식시켜주는 것
 public class SpringBootJpaEx3Application {
 
 	public static void main(String[] args) {

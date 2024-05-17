@@ -58,7 +58,7 @@ public class BoardUpdateController {
 	}
 	
 	@PostMapping("/board/update")
-	public String insert(@ModelAttribute BoardDto dto,
+	public String update(@ModelAttribute BoardDto dto,
 			@RequestParam ArrayList<MultipartFile> upload,
 			HttpSession session,
 			@RequestParam String currentPage) {
