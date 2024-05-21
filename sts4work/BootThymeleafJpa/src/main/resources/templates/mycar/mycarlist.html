@@ -12,11 +12,15 @@ width: 30px;
 height: 30px;
 border-radius: 100px;
 }
+a{
+text-decoration: none;
+color: black;
+}
 </style>
 
 </head>
 <body>
-<div style="margin: 100px 100px;">
+<div style="margin:0 auto; width: 60%; margin-top: 5%;">
 	<h3 class="alert alert-danger">MyCar 목록 출력</h3>
 	<h5><b>총 [[${totalcount}]]개의 자동차 정보가 등록되었습니다.</b>
 	
@@ -37,9 +41,12 @@ border-radius: 100px;
 		<tr th:each="dto,iter:${list}">
 			<td align="center">[[${iter.count}]]</td>
 			<td>
-				<a>
+				<a th:href="@{/detail(num=${dto.num})}">
 					<img th:src="@{|/save/${dto.carphoto}|}" style="width: 40px;">
 					[[${dto.carname}]]</a>
+					
+					<!-- 댓글 갯수 추가 -->
+				<span style="color: red;" th:if="${dto.commentcount>0}">[<span >[[${dto.commentcount}]]</span>]</span>
 			</td>
 			<td align="center">
 				<div class="box" th:style="'background-color:'+${dto.carcolor}"></div>

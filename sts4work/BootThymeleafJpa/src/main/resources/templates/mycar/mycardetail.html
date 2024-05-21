@@ -6,8 +6,106 @@
 <link href="https://fonts.googleapis.com/css2?family=Dongle&family=Gaegu&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@100..900&family=Noto+Serif+KR&display=swap" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 <title>Insert title here</title>
+<style type="text/css">
+	div.box{
+		width: 200px;
+		border: 1px solid gray;
+		font-size: 20px;
+	}
+</style>
+<script type="text/javascript">
+	$(function(){
+		//처음 시작시 댓글 출력
+		comment_list();
+		
+	})
+	function comment_list(){
+		//let num=[[${dto.num}]];
+		//alert(num);
+		let num = $("#num").val();
+		
+		$.ajax({
+			type:"get",
+			dataType:"json",
+			url:"./commentlist",
+			data:{"num":num},
+			success:function(res){
+				let s=`댓글:&nbsp;${res.length}개`;
+				$.each(res,function(idx,item){
+					s+=`<div style='margin-left:10px;'>
+								${item.comment}
+								<span style='color:gray;font-size:0.9em;'>${item.writeday}</span>
+							</div>`;
+				})
+				$(".comment-list").html(s);
+			}
+		})
+	}
+</script>
 </head>
 <body>
-
+	<div style="margin: 100px 100px;">
+		<h2>[[${dto.carname}]] 상세보기</h2>
+		<hr>
+		<h3>원본 이미지</h3>
+		<img th:src="@{|/save/${dto.carphoto}|}" 
+		style="max-width: 300px;border: 2px solid gray;">
+		<hr>
+		<div th:object=${dto}>
+			<h4>자동차명:[[*{carname}]] </h4>
+			<div class="box" th:style="'background-color:'+*{carcolor}">
+				색상: [[*{carcolor}]]
+			</div>
+			<h4>가격:[[*{carprice}]] </h4>
+			<h4>등록일: <span th:text="${#calendars.format(dto.writeday,'yyyy-MM-dd')}"></span> </h4>
+		</div>
+		
+		<!-- 댓글부분 추가 -->
+		<hr>
+		<div class="comment-list">
+			댓글목록
+		</div>
+		<div class="d-inline-flex">
+			<input type="text" class="form-control" style="margin-left: 10px;width: 400px;" id="comment">
+			 <input type="hidden" id="num" th:value="${dto.num}">
+			<button type="button" class="btn btn-success btn-sm" id="btncomment"
+			style="margin-left: 10px;">저장</button>
+		</div>
+		<script type="text/javascript">
+			$("#btncomment").click(function(){
+				//var num = [[${dto.num}]];
+				//alert(num);
+				var num = $("#num").val();
+				
+				var comment=$("#comment").val();
+				$.ajax({
+					type:"get",
+					dataType:"html",
+					url:"./addcomment",
+					data:{"num":num,"comment":comment},
+					success:function(){
+						//alert("성공");
+						comment_list();
+						$("#comment").val('');
+						
+					}
+					
+				})
+				
+				
+			})
+		</script>
+		<br>
+		
+		<br>
+		<button type="button" class="btn btn-outline-info" 
+		onclick="location.href='writeform'" style="width: 120px;">자동차 추가</button>
+		<button type="button" class="btn btn-outline-info" 
+		onclick="location.href='list'" style="width: 120px;">목록</button>
+		<button type="button" class="btn btn-outline-info" 
+		th:onclick="|location.href='@{/updateform(num=${dto.num})}'|" style="width: 120px;">수정</button>
+		<button type="button" class="btn btn-outline-info" 
+		th:onclick="|location.href='@{/delete(num=${dto.num})}'|" style="width: 120px;">삭제</button>
+	</div>
 </body>
 </html>
