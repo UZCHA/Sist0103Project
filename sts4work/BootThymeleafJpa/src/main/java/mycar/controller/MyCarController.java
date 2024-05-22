@@ -23,6 +23,7 @@ import mycar.repository.MyCarDao;
 public class MyCarController {
 
 	private final MyCarDao dao;
+	
 	//멤버변수 추가
 	private final MyCarCommentDao commentDao;
 	
@@ -54,7 +55,7 @@ public class MyCarController {
 		return "mycar/mycarform";
 	}
 	
-	@PostMapping("/insert")
+	@PostMapping("/insert") //carupload 는 form 에 작성한 name 입니다.
 	public String insert(@ModelAttribute MyCarDto dto,
 			@RequestParam MultipartFile carupload,
 			HttpSession session) {
@@ -119,6 +120,7 @@ public class MyCarController {
 	public String update(@ModelAttribute MyCarDto dto,@RequestParam MultipartFile upload,
 			HttpSession session) {
 		
+		//수정할때 사진을 변경안하면 사진 제외하고 수정(사진 그대로 db에 있음)
 		if(upload.getOriginalFilename().equals("")) {
 			dao.updateMycarNoPhoto(dto);
 		}else {
