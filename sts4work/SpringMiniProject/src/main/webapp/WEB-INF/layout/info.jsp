@@ -18,5 +18,13 @@
 	<i class="bi bi-telephone"></i>&nbsp;010-111-222<br>
 	<i class="bi bi-house-door"></i>&nbsp;서울시 강남구 역삼동 <br>
 	<i class="bi bi-instagram"></i>&nbsp;(@xeexoxee)
+	
+	<!-- 로그아웃상태는 기본이미지로, 로그인 상태는 회원가입때 이미지가 나오게 -->
+	<c:if test="${sessionScope.loginok==null }">
+		<img src="${root }/image/10.jpg" width="130" height="130">
+	</c:if>
+	<c:if test="${sessionScope.loginok!=null }">
+		<img alt="" src="${root }/memberphoto/${sessionScope.loginphoto}" width="130" height="130">
+	</c:if>
 </body>
 </html>

@@ -13,14 +13,17 @@
 <title>Insert title here</title>
 <style type="text/css">
 	div.layout div{
-		border: 1px solid black;
+		border: 0px solid black;
 	}
 	div.layout div.title{
 		position: absolute;
 		top: 10px;
 		height: 100px;
-		margin: 0 auto;
+		left:280px;
 		width: 30%;
+		display: flex;
+		justify-content: center; /* Flexbox를 사용하여 자식 요소를 가운데 정렬 */
+		align-items: center;
 	}
 	div.layout div.menu{
 		position: absolute;
@@ -48,6 +51,7 @@
 		left: 280px;
 		height: 100%;
 		width: 80%;
+		
 		
 	}
 </style>

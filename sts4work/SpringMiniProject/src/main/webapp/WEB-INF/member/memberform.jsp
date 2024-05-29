@@ -10,8 +10,159 @@
 <link href="https://fonts.googleapis.com/css2?family=Dongle&family=Gaegu&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@100..900&family=Noto+Serif+KR&display=swap" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 <title>Insert title here</title>
+<style type="text/css">
+	#showing{
+		width: 130px;
+		height: 160px;
+		border: 1px solid gray;
+	}
+</style>
+<script type="text/javascript">
+	$(function(){
+		//버튼클릭시 사진불러오는 이벤트
+		$("#btnphoto").click(function(){
+			$("#myphoto").trigger("click");
+		});
+		
+		//사진을 불러오면 미리보기 하기
+		$("#myphoto").change(function(){
+			
+			 if ($(this)[0].files[0]) {
+			        var reader = new FileReader();
+			        reader.onload = function (e) {
+			            $("#showimg").attr('src', e.target.result);
+			        }
+			        reader.readAsDataURL($(this)[0].files[0]);
+			    }
+		});	
+		
+		//중복체크 버튼 클릭시 id 체크
+		$("#btnidcheck").click(function(){
+			var id=$("#loginid").val();
+			//alert(id);
+			
+	
+			
+			$.ajax({
+				type:"get",
+				url:"idcheck",
+				dataType:"json",
+				data:{"id":id},
+				success:function(res){
+					if(res.check==1){
+						$("span.idsuccess").text("가입불가").css("color","red");
+						//alert("이미 등록된 아이디입니다.\n다른 아이디를 입력해 주세요.")
+						$("#loginid").val("");
+						return;
+					}else{
+						//alert("사용 가능한 아이디입니다.");
+						$("span.idsuccess").text("가입가능").css("color","green");
+					}
+				}
+				
+			})
+		});
+		//아이디 입력시 idsuccess값 지워짐
+		$("#loginid").keydown(function(){
+			$("span.idsuccess").text("");
+		});
+		
+		//2번째 비밀번호 입력시 체크
+		$("#pass2").keyup(function(){
+			
+		var pass=$("#pass").val();
+		var pass2=$(this).val();
+		
+		if(pass==pass2){
+			$("span.passsuccess").text("일치");
+		}else{
+			$("span.passsuccess").text("불일치");
+		}
+	});
+		
+})
+	//submit하기전에 호출
+	function check(){
+		//사진
+		if($("#myphoto").val()==''){
+			alert("사진을 넣어주세요.");
+			return false;
+		}
+		//아이디중복체크 버튼 
+		if($("span.idsuccess").text()!='가입가능'){
+			alert("아이디 중복체크 해주세요.");
+			return false;
+		}
+		
+		//비밀번호
+		if($("span.passsuccess").text()!='일치'){
+			alert("비밀번호가 서로 다릅니다.");
+			return false;
+		}
+		
+	}
+	
+</script>
 </head>
 <body>
-<h1>회원가입폼</h1>
+<div style="margin: 20px 50px;">
+	<form action="insert" method="post" enctype="multipart/form-data" onsubmit="return check()">
+		<table class="table table-bordered" style="width: 600px;">
+			<caption align="top"><b>회원가입</b></caption>
+			<tr>
+				<td style="width: 250px;" align="center" rowspan="4">
+					<input type="file" name="myphoto" id="myphoto" style="display:none; ">
+					<button type="button" id="btnphoto" class="btn btn-secondary">사진 선택</button>
+					<br>
+					<img id="showimg">
+				</td>
+				<td>
+					<div class="d-inline-flex">
+						<input type="text" placeholder="아이디를 입력해주세요." name="id" id="loginid"
+						class="form-control" style="width: 120px;" required="required">&nbsp;
+						<button type="button" class="btn btn-danger btn-sm" id="btnidcheck">중복체크</button>&nbsp;
+						<span class="idsuccess" style="width: 60px;"></span>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div class="d-inline-flex">
+						<input type="password" name="pass" id="pass" style="width: 120px;" 
+						class="form-control" required="required" placeholder="숫자4자리">&nbsp;
+						<input type="password" id="pass2" style="width: 120px;" 
+						class="form-control" required="required" placeholder="비밀번호 확인">&nbsp;
+						<span class="passsuccess" style="width: 60px;"></span>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="text" name="name" class="form-control" style="width:150px;"
+					placeholder="이름입력" required="required">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="email" name="email" class="form-control" style="width:200px;"
+						placeholder="이메일입력" required="required">
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<div class="d-inline-flex">
+						<input type="text" name="hp" placeholder="연락처입력" style="width: 200px;" required="required">&nbsp;
+						<input type="text" name="addr" placeholder="주소입력" style="width: 250px;" required="required">
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center">
+					<button type="submit" class="btn btn-info" style="width:200px; ">회원가입</button>
+				</td>
+			</tr>
+		</table>
+	</form>
+</div>
 </body>
 </html>

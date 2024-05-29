@@ -11,4 +11,5 @@ public class MapController {
 		
 		return "/trd/load/loadmap";
 	}
+	
 }
