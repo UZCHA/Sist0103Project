@@ -18,4 +18,8 @@ public interface MemberMapperInter {
 	public MemberDto getDataById(String id);
 	public void deleteMember(String num);
 	
+	public MemberDto getDataByNum(String num);
+	public void updatePhoto(Map<String, String> map);
+	public void updateMember(MemberDto dto);
+	
 }
