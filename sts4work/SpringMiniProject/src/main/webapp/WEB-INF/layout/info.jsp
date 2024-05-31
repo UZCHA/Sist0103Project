@@ -13,6 +13,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<div>
 	<c:set var="root" value="<%=request.getContextPath() %>"/>
 	<i class="bi bi-envelope-at"></i>&nbsp;qwer@gmail.com<br>
 	<i class="bi bi-telephone"></i>&nbsp;010-111-222<br>
@@ -26,5 +27,6 @@
 	<c:if test="${sessionScope.loginok!=null }">
 		<img alt="" src="${root }/memberphoto/${sessionScope.loginphoto}" width="130" height="130">
 	</c:if>
+</div>
 </body>
 </html>
