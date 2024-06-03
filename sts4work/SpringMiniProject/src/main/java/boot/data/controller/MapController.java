@@ -12,4 +12,9 @@ public class MapController {
 		return "/trd/load/loadmap";
 	}
 	
+	@GetMapping("/test/test")
+	public String test() {
+		return "/test/test";
+	}
+	
 }

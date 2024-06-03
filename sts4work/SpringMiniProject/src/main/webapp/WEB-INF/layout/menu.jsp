@@ -60,6 +60,9 @@ ul.menu li a{
 	<li>
 		<a href='${root }/load/map'>오시는길</a>
 	</li>
+	<li>
+		<a href='${root }/test/test'>테스트</a>
+	</li>
 </ul>
 </body>
 </html>
